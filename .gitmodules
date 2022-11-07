@@ -1,0 +1,4 @@
+[submodule "stesi/gtms"]
+	path = stesi/gtms
+	url = git@github.com:stesi/gtms.git
+	branch = 16.0
