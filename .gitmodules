@@ -2,3 +2,8 @@
 	path = stesi/gtms
 	url = git@github.com:stesi/gtms.git
 	branch = 16.0
+
+[submodule "stesi/gtms_contractmanager"]
+	path = stesi/gtms_contractmanager
+	url = git@github.com:stesi/gtms_contractmanager.git
+	branch = 16.0
