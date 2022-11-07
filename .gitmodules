@@ -12,3 +12,8 @@
 	path = ingegniamo/gtms_inspection_survey
 	url = git@github.com:ingegniamo/gtms_inspection_survey.git
 	branch = 16.0
+
+[submodule "ingegniamo/gtms_inspection_website"]
+	path = ingegniamo/gtms_inspection_website
+	url = git@github.com:ingegniamo/gtms_inspection_website.git
+	branch = 16.0
