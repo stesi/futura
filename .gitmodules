@@ -7,3 +7,8 @@
 	path = stesi/gtms_contractmanager
 	url = git@github.com:stesi/gtms_contractmanager.git
 	branch = 16.0
+
+[submodule "ingegniamo/gtms_inspection_survey"]
+	path = ingegniamo/gtms_inspection_survey
+	url = git@github.com:ingegniamo/gtms_inspection_survey.git
+	branch = 16.0
