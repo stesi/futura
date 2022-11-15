@@ -27,3 +27,8 @@
 	path = ingegniamo/sh_survey_extra_fields
 	url = git@github.com:ingegniamo/sh_survey_extra_fields.git
 	branch = 16.0
+
+[submodule "stesi/gtms_fleet_planning"]
+	path = stesi/gtms_fleet_planning
+	url = git@github.com:stesi/gtms_fleet_planning.git
+	branch = 16.0
