@@ -32,3 +32,8 @@
 	path = stesi/gtms_fleet_planning
 	url = git@github.com:stesi/gtms_fleet_planning.git
 	branch = 16.0
+
+[submodule "stesi/gtms_website"]
+	path = stesi/gtms_website
+	url = git@github.com:stesi/gtms_website.git
+	branch = 16.0
