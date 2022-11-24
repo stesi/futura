@@ -37,3 +37,8 @@
 	path = stesi/gtms_website
 	url = git@github.com:stesi/gtms_website.git
 	branch = 16.0
+
+[submodule "stesi/gtms_otm"]
+	path = stesi/gtms_otm
+	url = git@github.com:stesi/gtms_otm.git
+	branch = 16.0
