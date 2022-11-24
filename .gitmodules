@@ -42,3 +42,8 @@
 	path = stesi/gtms_otm
 	url = git@github.com:stesi/gtms_otm.git
 	branch = 16.0
+
+[submodule "stesi/ftp_connector"]
+	path = stesi/ftp_connector
+	url = git@github.com:stesi/ftp_connector.git
+	branch = 16.0
