@@ -47,3 +47,8 @@
 	path = stesi/ftp_connector
 	url = git@github.com:stesi/ftp_connector.git
 	branch = 16.0
+
+[submodule "stesi/odoo_whatsapp_integration"]
+	path = stesi/odoo_whatsapp_integration
+	url = git@github.com:stesi/odoo_whatsapp_integration.git
+	branch = 16.0
