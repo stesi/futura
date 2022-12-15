@@ -52,3 +52,8 @@
 	path = stesi/odoo_whatsapp_integration
 	url = git@github.com:stesi/odoo_whatsapp_integration.git
 	branch = 16.0
+
+[submodule "ingegniamo/survey_image_on_answers"]
+	path = ingegniamo/survey_image_on_answers
+	url = git@github.com:ingegniamo/survey_image_on_answers.git
+	branch = 16.0
