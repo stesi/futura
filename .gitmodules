@@ -57,3 +57,8 @@
 	path = ingegniamo/survey_image_on_answers
 	url = git@github.com:ingegniamo/survey_image_on_answers.git
 	branch = 16.0
+
+[submodule "OCA/l10n-italy"]
+	path = OCA/l10n-italy
+	url = git@github.com:OCA/l10n-italy.git
+	branch = 16.0
