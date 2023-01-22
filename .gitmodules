@@ -87,3 +87,8 @@
 	path = ingegniamo/gtms_otm_inspection
 	url = git@github.com:ingegniamo/gtms_otm_inspection.git
 	branch = 16.0
+
+[submodule "ingegniamo/gtms_fleet_organization"]
+	path = ingegniamo/gtms_fleet_organization
+	url = git@github.com:ingegniamo/gtms_fleet_organization.git
+	branch = 16.0
