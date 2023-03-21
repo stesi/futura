@@ -92,3 +92,8 @@
 	path = ingegniamo/gtms_fleet_organization
 	url = git@github.com:ingegniamo/gtms_fleet_organization.git
 	branch = 16.0
+
+[submodule "ingegniamo/fleet_plate_unique"]
+	path = ingegniamo/fleet_plate_unique
+	url = git@github.com:ingegniamo/fleet_plate_unique.git
+	branch = 16.0
