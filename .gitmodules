@@ -102,3 +102,8 @@
 	path = ingegniamo/fleet_service_purchase
 	url = git@github.com:ingegniamo/fleet_service_purchase.git
 	branch = 16.0
+
+[submodule "ingegniamo/fleet_limited_traffic_zone"]
+	path = ingegniamo/fleet_limited_traffic_zone
+	url = git@github.com:ingegniamo/fleet_limited_traffic_zone.git
+	branch = 16.0
