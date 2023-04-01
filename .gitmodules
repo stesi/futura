@@ -107,3 +107,8 @@
 	path = ingegniamo/fleet_limited_traffic_zone
 	url = git@github.com:ingegniamo/fleet_limited_traffic_zone.git
 	branch = 16.0
+
+[submodule "ingegniamo/fleet_service_with_deduction"]
+	path = ingegniamo/fleet_service_with_deduction
+	url = git@github.com:ingegniamo/fleet_service_with_deduction.git
+	branch = 16.0
