@@ -112,3 +112,8 @@
 	path = ingegniamo/fleet_service_with_deduction
 	url = git@github.com:ingegniamo/fleet_service_with_deduction.git
 	branch = 16.0
+
+[submodule "ingegniamo/fleet_service_type_form"]
+	path = ingegniamo/fleet_service_type_form
+	url = git@github.com:ingegniamo/fleet_service_type_form.git
+	branch = 16.0
