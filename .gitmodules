@@ -117,3 +117,8 @@
 	path = ingegniamo/fleet_service_type_form
 	url = git@github.com:ingegniamo/fleet_service_type_form.git
 	branch = 16.0
+
+[submodule "ingegniamo/fleet_replacement"]
+	path = ingegniamo/fleet_replacement
+	url = git@github.com:ingegniamo/fleet_replacement.git
+	branch = 16.0
