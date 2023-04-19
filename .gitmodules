@@ -122,3 +122,8 @@
 	path = ingegniamo/fleet_replacement
 	url = git@github.com:ingegniamo/fleet_replacement.git
 	branch = 16.0
+
+[submodule "ingegniamo/stesi_fleet_documents"]
+	path = ingegniamo/stesi_fleet_documents
+	url = git@github.com:ingegniamo/stesi_fleet_documents.git
+	branch = 16.0
