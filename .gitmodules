@@ -127,3 +127,13 @@
 	path = ingegniamo/stesi_fleet_documents
 	url = git@github.com:ingegniamo/stesi_fleet_documents.git
 	branch = 16.0
+
+[submodule "OCA/web"]
+	path = OCA/web
+	url = git@github.com:OCA/web.git
+	branch = 16.0
+
+[submodule "ingegniamo/gtms_fleet_service_with_deduction"]
+	path = ingegniamo/gtms_fleet_service_with_deduction
+	url = git@github.com:ingegniamo/gtms_fleet_service_with_deduction.git
+	branch = 16.0
