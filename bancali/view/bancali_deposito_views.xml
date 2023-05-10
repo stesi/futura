@@ -29,7 +29,7 @@
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button class="oe_stat_button" type="object" name="get_bancali">
-                                <img src="/odoo-bancali/static/src/img/icon_1.png" alt="Pallets"  style="height: 40px;margin-left: 10px;"/>
+                                <img src="/bancali/static/src/img/icon_1.png" alt="Pallets"  style="height: 40px;margin-left: 10px;"/>
                                 <field string="Bancali" name="bancale_count" decoration-success="bancale_count &lt; 0" decoration-danger="bancale_count &gt; 0"/>
                                 <span>Bancali</span>
                         </button>

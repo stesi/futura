@@ -15,10 +15,10 @@
     name="Depositi"
     parent="bancali_menu_root"/>
     
-    <!-- <menuitem id="fatturazione_bancali_first_level_menu" 
+    <menuitem id="fatturazione_bancali_first_level_menu" 
     action="bancali_fatturazione"
     name="Fatturazione"
-    parent="bancali_menu_root"/> -->
+    parent="bancali_menu_root"/>
 
     <!-- MENU ACTION -->
 

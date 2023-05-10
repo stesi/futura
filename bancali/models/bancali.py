@@ -163,7 +163,7 @@ class FatturazioneBancali(models.TransientModel):
                 'type': 'ir.actions.act_window',
                 'view_mode': 'tree',
                 'res_model': 'bancali',
-                'view_id': self.env.ref('odoo-bancali.bancali_views_tree').id,
+                'view_id': self.env.ref('bancali.bancali_views_tree').id,
                 'target': 'main',
                 'domain': [('azienda_id', '=', self.azienda_id.id)],
             }    
@@ -187,7 +187,7 @@ class DeleteWizard(models.TransientModel):
                 'type': 'ir.actions.act_window',
                 'view_mode': 'tree',
                 'res_model': 'bancali',
-                'view_id': self.env.ref('odoo-bancali.bancali_views_tree').id,
+                'view_id': self.env.ref('bancali.bancali_views_tree').id,
                 'target': 'main',
                 'domain': [('azienda_id', '=', self.record_azienda_id)],
             }         
