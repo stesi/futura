@@ -2,7 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Bancali',
+    'name': 'Bancali2',
     'version': '0.5',
     'author': "Luca Cocozza",
     'application': True,
