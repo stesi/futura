@@ -1,0 +1,8 @@
+- Creare un vista kanban per i bancali di un singolo fornitore
+- Vedere di implementare anteprima documenti
+
+
+Ho trovato l'errore, nel file res.partner.py il contenuto del domain non va tra virgolette.
+errato:
+
+corretto:

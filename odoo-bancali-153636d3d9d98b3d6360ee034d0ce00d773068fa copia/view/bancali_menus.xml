@@ -11,12 +11,15 @@
     name="Bancali"
     parent="bancali_menu_root"/>
 
+    <menuitem id="buono_first_level_menu" 
+    name="Buono"
+    parent="bancali_menu_root"/>
+
     <menuitem id="deposito_first_level_menu" 
     name="Depositi"
     parent="bancali_menu_root"/>
     
     <menuitem id="fatturazione_bancali_first_level_menu" 
-    action="bancali_fatturazione"
     name="Fatturazione"
     parent="bancali_menu_root"/>
 
@@ -32,9 +35,19 @@
     parent="bancali_first_level_menu"
     name="Tipologia Bancali"/>
     
-    <menuitem id="depositi_menu_action"
+    <menuitem id="bancali_buono_menu_action"
+    action="bancali_buono"
+    parent="buono_first_level_menu"
+    name="Buoni Bancali"/>
+    
+    <menuitem id="depositi_buono_menu_action"
     action="bancali_deposito"
     parent="deposito_first_level_menu"
     name="Depositi Bancali"/>
+    
+    <menuitem id="fatturazione_bancali_menu_action"
+    action="bancali_fatturazione"
+    parent="fatturazione_bancali_first_level_menu"
+    name="Fatturazione Bancali al vettore"/>
     
 </odoo>

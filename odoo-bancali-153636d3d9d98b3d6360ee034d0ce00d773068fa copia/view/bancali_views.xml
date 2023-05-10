@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="bancali" model="ir.actions.act_window">
+        <field name="name">Movimentazione bancali</field>
+        <field name="res_model">bancali</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Relativo alla visualizzazione della tabella ad alberlo -->
+    <record id="bancali_views_tree" model="ir.ui.view">
+        <field name="name">Movimentazione bancali</field>
+        <field name="model">bancali</field>
+        <field name="arch" type="xml">
+            <tree string="Movimentazione Bancali" default_order="data_movimentazione desc" > <!-- editable="top" -->
+                <field name="data_movimentazione"/>
+                <field name="tipologia_id"/>
+                <field name="azienda_id"/>
+                <field name="ricevuti" sum="ricevuti"/>
+                <field name="consegnati" sum="consegnati"/>
+                <field name="differenza" sum="differenza"/>
+                <field name="deposito_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="bancali_form_view">
+        <field name="name">Movimentazione bancali</field>
+        <field name="model">bancali</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="create_wizard" string="Delete record" class="oe_edit_only" type="object" attrs="{'invisible': [('id', '=', False)]}" />
+                </header>                
+                <sheet>
+                    <group>
+                        <field name="id" attrs="{'invisible': 1}"/>
+                        <field name="data_movimentazione"/>
+                        <field name="tipologia_id"/>
+                        <field name="azienda_id"/>
+                        <field name="ricevuti"/>
+                        <field name="consegnati"/>
+                        <field name="deposito_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

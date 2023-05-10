@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="bancali_buono" model="ir.actions.act_window">
+        <field name="name">Buono bancali</field>
+        <field name="res_model">bancali.buono</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Relativo alla visualizzazione della tabella ad alberlo -->
+    <record id="bancali_buono_views_tree" model="ir.ui.view">
+        <field name="name">Buono bancali</field>
+        <field name="model">bancali.buono</field>
+        <field name="arch" type="xml">
+            <tree string="Buono Bancali">
+                <field name="numero"/>
+                <field name="file"/>
+                <field name="allegato" widget="many2many_attachment_preview"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Modifica della visualizzazione del form view (edit e creazione) il quale, quando implementato, sostituisce la visualizzazione di default  -->
+    <record id="bancali_buono_views_form" model="ir.ui.view">
+        <field name="name">Buono bancali form view</field>
+        <field name="model">bancali.buono</field>
+        <field name="arch" type="xml">
+            <form string="Test">
+                <sheet>
+                    <field name="numero"/>
+                    <field name="file"/>
+                    <field name="allegato" widget="many2many_attachment_preview"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>
