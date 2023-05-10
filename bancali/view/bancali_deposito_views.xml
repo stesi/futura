@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="bancali_deposito" model="ir.actions.act_window">
-        <field name="name">Movimentazione bancali</field>
+        <field name="name">Depositi bancali</field>
         <field name="res_model">bancali.deposito</field>
         <field name="view_mode">tree,form</field>
     </record>
 
     <!-- Relativo alla visualizzazione della tabella ad alberlo -->
     <record id="bancali_deposito_views_tree" model="ir.ui.view">
-        <field name="name">Movimentazione bancali</field>
+        <field name="name">Depositi bancali</field>
         <field name="model">bancali.deposito</field>
         <field name="arch" type="xml">
             <tree string="Movimentazione Bancali">
@@ -22,7 +22,7 @@
     </record>
 
     <record id="bancali_deposito_views_form" model="ir.ui.view">
-        <field name="name">Movimentazione bancali</field>
+        <field name="name">Depositi bancali</field>
         <field name="model">bancali.deposito</field>
         <field name="arch" type="xml">
             <form>
