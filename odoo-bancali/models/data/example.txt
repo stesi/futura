@@ -1,0 +1,619 @@
+{
+  "data": [
+    {
+      "ambientAirTemperatureMilliC": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 31110
+      },
+      "auxInput1": {
+        "name": "Boom",
+        "time": "2020-01-27T07:06:25Z",
+        "value": true
+      },
+      "auxInput10": {
+        "name": "Boom",
+        "time": "2020-01-27T07:06:25Z",
+        "value": true
+      },
+      "auxInput11": {
+        "name": "Boom",
+        "time": "2020-01-27T07:06:25Z",
+        "value": true
+      },
+      "auxInput12": {
+        "name": "Boom",
+        "time": "2020-01-27T07:06:25Z",
+        "value": true
+      },
+      "auxInput13": {
+        "name": "Boom",
+        "time": "2020-01-27T07:06:25Z",
+        "value": true
+      },
+      "auxInput2": {
+        "name": "Boom",
+        "time": "2020-01-27T07:06:25Z",
+        "value": true
+      },
+      "auxInput3": {
+        "name": "Boom",
+        "time": "2020-01-27T07:06:25Z",
+        "value": true
+      },
+      "auxInput4": {
+        "name": "Boom",
+        "time": "2020-01-27T07:06:25Z",
+        "value": true
+      },
+      "auxInput5": {
+        "name": "Boom",
+        "time": "2020-01-27T07:06:25Z",
+        "value": true
+      },
+      "auxInput6": {
+        "name": "Boom",
+        "time": "2020-01-27T07:06:25Z",
+        "value": true
+      },
+      "auxInput7": {
+        "name": "Boom",
+        "time": "2020-01-27T07:06:25Z",
+        "value": true
+      },
+      "auxInput8": {
+        "name": "Boom",
+        "time": "2020-01-27T07:06:25Z",
+        "value": true
+      },
+      "auxInput9": {
+        "name": "Boom",
+        "time": "2020-01-27T07:06:25Z",
+        "value": true
+      },
+      "barometricPressurePa": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 99000
+      },
+      "batteryMilliVolts": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 7991
+      },
+      "defLevelMilliPercent": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 54200
+      },
+      "ecuSpeedMph": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 32.1
+      },
+      "engineCoolantTemperatureMilliC": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 31110
+      },
+      "engineImmobilizer": {
+        "connected": false,
+        "state": "ignition_disabled",
+        "time": "2020-01-27T07:06:25Z"
+      },
+      "engineLoadPercent": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 54
+      },
+      "engineOilPressureKPa": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 100
+      },
+      "engineRpm": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 1000
+      },
+      "engineState": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": "On"
+      },
+      "evAverageBatteryTemperatureMilliCelsius": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 1000
+      },
+      "evBatteryCurrentMilliAmp": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 1000
+      },
+      "evBatteryStateOfHealthMilliPercent": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 1000
+      },
+      "evBatteryVoltageMilliVolt": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 1000
+      },
+      "evChargingCurrentMilliAmp": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 1000
+      },
+      "evChargingEnergyMicroWh": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 1000
+      },
+      "evChargingStatus": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 0
+      },
+      "evChargingVoltageMilliVolt": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 1000
+      },
+      "evConsumedEnergyMicroWh": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 1000
+      },
+      "evDistanceDrivenMeters": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 1000
+      },
+      "evRegeneratedEnergyMicroWh": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 1000
+      },
+      "evStateOfChargeMilliPercent": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 1000
+      },
+      "externalIds": {
+        "maintenanceId": "250020",
+        "payrollId": "ABFS18600"
+      },
+      "faultCodes": {
+        "canBusType": "CANBUS_J1939_500",
+        "j1939": {
+          "checkEngineLights": {
+            "emissionsIsOn": true,
+            "protectIsOn": false,
+            "stopIsOn": false,
+            "warningIsOn": false
+          },
+          "diagnosticTroubleCodes": [
+            {
+              "fmiDescription": "Voltage Below Normal",
+              "fmiId": 9,
+              "milStatus": 1,
+              "occurrenceCount": 1,
+              "sourceAddressName": "Engine #1",
+              "spnDescription": "System Diagnostic Code #1",
+              "spnId": 3031,
+              "txId": 0,
+              "vendorSpecificFields": {
+                "dtcDescription": "false",
+                "repairInstructionsUrl": "false"
+              }
+            }
+          ]
+        },
+        "obdii": {
+          "checkEngineLightIsOn": true,
+          "diagnosticTroubleCodes": [
+            {
+              "confirmedDtcs": [
+                {
+                  "dtcDescription": "Fuel Rail/System Pressure - Too Low Bank 1",
+                  "dtcId": 135,
+                  "dtcShortCode": "P0087"
+                }
+              ],
+              "ignitionType": "spark",
+              "milStatus": true,
+              "monitorStatus": {
+                "catalyst": "N",
+                "comprehensive": "N",
+                "egr": "N",
+                "evapSystem": "N",
+                "fuel": "N",
+                "heatedCatalyst": "N",
+                "heatedO2Sensor": "N",
+                "isoSaeReserved": "N",
+                "misfire": "N",
+                "notReadyCount": 0,
+                "o2Sensor": "N",
+                "secondaryAir": "N"
+              },
+              "pendingDtcs": [
+                {
+                  "dtcDescription": "Fuel Rail/System Pressure - Too Low Bank 1",
+                  "dtcId": 135,
+                  "dtcShortCode": "P0087"
+                }
+              ],
+              "permanentDtcs": [
+                {
+                  "dtcDescription": "Fuel Rail/System Pressure - Too Low Bank 1",
+                  "dtcId": 135,
+                  "dtcShortCode": "P0087"
+                }
+              ],
+              "txId": 0
+            }
+          ]
+        },
+        "oem": {
+          "diagnosticTroubleCodes": [
+            {
+              "codeDescription": "KVGT Servo Error",
+              "codeIdentifier": "CA2387",
+              "codeSeverity": "L03",
+              "codeSource": "ENG/M"
+            }
+          ]
+        },
+        "time": "2020-01-27T07:06:25Z"
+      },
+      "fuelPercent": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 54
+      },
+      "gps": {
+        "address": {
+          "id": "1234",
+          "name": "Address 1"
+        },
+        "headingDegrees": 120,
+        "isEcuSpeed": true,
+        "latitude": 122.142,
+        "longitude": -93.343,
+        "reverseGeo": {
+          "formattedLocation": "16 N Fair Oaks Ave, Pasadena, CA 91103"
+        },
+        "speedMilesPerHour": 48.3,
+        "time": "2020-01-27T07:06:25Z"
+      },
+      "gpsDistanceMeters": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 81029.591434899
+      },
+      "gpsOdometerMeters": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 14010293
+      },
+      "id": "112",
+      "intakeManifoldTemperatureMilliC": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 88000
+      },
+      "name": "Truck A7",
+      "nfcCardScan": {
+        "card": {
+          "id": "835063"
+        },
+        "time": "2020-01-27T07:06:25Z"
+      },
+      "obdEngineSeconds": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 9723103
+      },
+      "obdOdometerMeters": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 14010293
+      },
+      "spreaderAirTemp": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 1000
+      },
+      "spreaderBlastState": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": "Off"
+      },
+      "spreaderGranularRate": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 1000
+      },
+      "spreaderLiquidRate": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 1000
+      },
+      "spreaderOnState": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": "On"
+      },
+      "spreaderPrewetRate": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 1000
+      },
+      "spreaderRoadTemp": {
+        "time": "2020-01-27T07:06:25Z",
+        "value": 1000
+      },
+      "syntheticEngineSeconds": {
+        "decorations": {
+          "ambientAirTemperatureMilliC": {
+            "value": 31110
+          },
+          "auxInput1": {
+            "name": "Boom",
+            "value": true
+          },
+          "auxInput10": {
+            "name": "Boom",
+            "value": true
+          },
+          "auxInput11": {
+            "name": "Boom",
+            "value": true
+          },
+          "auxInput12": {
+            "name": "Boom",
+            "value": true
+          },
+          "auxInput13": {
+            "name": "Boom",
+            "value": true
+          },
+          "auxInput2": {
+            "name": "Boom",
+            "value": true
+          },
+          "auxInput3": {
+            "name": "Boom",
+            "value": true
+          },
+          "auxInput4": {
+            "name": "Boom",
+            "value": true
+          },
+          "auxInput5": {
+            "name": "Boom",
+            "value": true
+          },
+          "auxInput6": {
+            "name": "Boom",
+            "value": true
+          },
+          "auxInput7": {
+            "name": "Boom",
+            "value": true
+          },
+          "auxInput8": {
+            "name": "Boom",
+            "value": true
+          },
+          "auxInput9": {
+            "name": "Boom",
+            "value": true
+          },
+          "barometricPressurePa": {
+            "value": 99000
+          },
+          "batteryMilliVolts": {
+            "value": 7991
+          },
+          "defLevelMilliPercent": {
+            "value": 54200
+          },
+          "ecuSpeedMph": {
+            "value": 58.3
+          },
+          "engineCoolantTemperatureMilliC": {
+            "value": 31110
+          },
+          "engineImmobilizer": {
+            "connected": false,
+            "state": "ignition_disabled",
+            "time": "2020-01-27T07:06:25Z"
+          },
+          "engineLoadPercent": {
+            "value": 54
+          },
+          "engineOilPressureKPa": {
+            "value": 100
+          },
+          "engineRpm": {
+            "value": 1000
+          },
+          "engineStates": {
+            "value": "On"
+          },
+          "evAverageBatteryTemperatureMilliCelsius": {
+            "time": "2020-01-27T07:06:25Z",
+            "value": 1000
+          },
+          "evBatteryCurrentMilliAmp": {
+            "time": "2020-01-27T07:06:25Z",
+            "value": 1000
+          },
+          "evBatteryStateOfHealthMilliPercent": {
+            "time": "2020-01-27T07:06:25Z",
+            "value": 1000
+          },
+          "evBatteryVoltageMilliVolt": {
+            "time": "2020-01-27T07:06:25Z",
+            "value": 1000
+          },
+          "evChargingCurrentMilliAmp": {
+            "time": "2020-01-27T07:06:25Z",
+            "value": 1000
+          },
+          "evChargingEnergyMicroWh": {
+            "time": "2020-01-27T07:06:25Z",
+            "value": 1000
+          },
+          "evChargingStatus": {
+            "time": "2020-01-27T07:06:25Z",
+            "value": 0
+          },
+          "evChargingVoltageMilliVolt": {
+            "time": "2020-01-27T07:06:25Z",
+            "value": 1000
+          },
+          "evConsumedEnergyMicroWh": {
+            "time": "2020-01-27T07:06:25Z",
+            "value": 1000
+          },
+          "evDistanceDrivenMeters": {
+            "time": "2020-01-27T07:06:25Z",
+            "value": 1000
+          },
+          "evRegeneratedEnergyMicroWh": {
+            "time": "2020-01-27T07:06:25Z",
+            "value": 1000
+          },
+          "evStateOfChargeMilliPercent": {
+            "time": "2020-01-27T07:06:25Z",
+            "value": 1000
+          },
+          "faultCodes": {
+            "canBusType": "CANBUS_J1939_500",
+            "j1939": {
+              "checkEngineLights": {
+                "emissionsIsOn": true,
+                "protectIsOn": false,
+                "stopIsOn": false,
+                "warningIsOn": false
+              },
+              "diagnosticTroubleCodes": [
+                {
+                  "fmiDescription": "Voltage Below Normal",
+                  "fmiId": 9,
+                  "milStatus": 1,
+                  "occurrenceCount": 1,
+                  "sourceAddressName": "Engine #1",
+                  "spnDescription": "System Diagnostic Code #1",
+                  "spnId": 3031,
+                  "txId": 0,
+                  "vendorSpecificFields": {
+                    "dtcDescription": "false",
+                    "repairInstructionsUrl": "false"
+                  }
+                }
+              ]
+            },
+            "obdii": {
+              "checkEngineLightIsOn": true,
+              "diagnosticTroubleCodes": [
+                {
+                  "confirmedDtcs": [
+                    {
+                      "dtcDescription": "Fuel Rail/System Pressure - Too Low Bank 1",
+                      "dtcId": 135,
+                      "dtcShortCode": "P0087"
+                    }
+                  ],
+                  "ignitionType": "spark",
+                  "milStatus": true,
+                  "monitorStatus": {
+                    "catalyst": "N",
+                    "comprehensive": "N",
+                    "egr": "N",
+                    "evapSystem": "N",
+                    "fuel": "N",
+                    "heatedCatalyst": "N",
+                    "heatedO2Sensor": "N",
+                    "isoSaeReserved": "N",
+                    "misfire": "N",
+                    "notReadyCount": 0,
+                    "o2Sensor": "N",
+                    "secondaryAir": "N"
+                  },
+                  "pendingDtcs": [
+                    {
+                      "dtcDescription": "Fuel Rail/System Pressure - Too Low Bank 1",
+                      "dtcId": 135,
+                      "dtcShortCode": "P0087"
+                    }
+                  ],
+                  "permanentDtcs": [
+                    {
+                      "dtcDescription": "Fuel Rail/System Pressure - Too Low Bank 1",
+                      "dtcId": 135,
+                      "dtcShortCode": "P0087"
+                    }
+                  ],
+                  "txId": 0
+                }
+              ]
+            },
+            "oem": {
+              "diagnosticTroubleCodes": [
+                {
+                  "codeDescription": "KVGT Servo Error",
+                  "codeIdentifier": "CA2387",
+                  "codeSeverity": "L03",
+                  "codeSource": "ENG/M"
+                }
+              ]
+            }
+          },
+          "fuelPercents": {
+            "value": 54
+          },
+          "gps": {
+            "address": {
+              "id": "1234",
+              "name": "Address 1" 
+            },
+            "headingDegrees": 120,
+            "isEcuSpeed": true,
+            "latitude": 122.142,
+            "longitude": -93.343,
+            "reverseGeo": {
+              "formattedLocation": "16 N Fair Oaks Ave, Pasadena, CA 91103"
+            },
+            "speedMilesPerHour": 48.3
+          },
+          "gpsDistanceMeters": {
+            "value": 81029.591434899
+          },
+          "gpsOdometerMeters": {
+            "value": 14010293
+          },
+          "intakeManifoldTemperatureMilliC": {
+            "value": 88000
+          },
+          "obdEngineSeconds": {
+            "value": 9723103
+          },
+          "obdOdometerMeters": {
+            "value": 14010293
+          },
+          "spreaderAirTemp": {
+            "time": "2020-01-27T07:06:25Z",
+            "value": 1000
+          },
+          "spreaderBlastState": {
+            "time": "2020-01-27T07:06:25Z",
+            "value": "Off"
+          },
+          "spreaderGranularRate": {
+            "time": "2020-01-27T07:06:25Z",
+            "value": 1000
+          },
+          "spreaderLiquidRate": {
+            "time": "2020-01-27T07:06:25Z",
+            "value": 1000
+          },
+          "spreaderOnState": {
+            "time": "2020-01-27T07:06:25Z",
+            "value": "On"
+          },
+          "spreaderPrewetRate": {
+            "time": "2020-01-27T07:06:25Z",
+            "value": 1000
+          },
+          "spreaderRoadTemp": {
+            "time": "2020-01-27T07:06:25Z",
+            "value": 1000
+          },
+          "tirePressure": {
+            "backLeftTirePressureKPa": 200,
+            "backRightTirePressureKPa": 200,
+            "frontLeftTirePressureKPa": 200,
+            "frontRightTirePressureKPa": 200
+          }
+        },
+        "time": "2020-01-27T07:06:25Z",
+        "value": 14010293
+      }
+    }
+  ],
+  "pagination": {
+    "endCursor": "MjkY",
+    "hasNextPage": true
+  }
+}

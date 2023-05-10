@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="bancali_deposito" model="ir.actions.act_window">
+        <field name="name">Depositi bancali</field>
+        <field name="res_model">bancali.deposito</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Relativo alla visualizzazione della tabella ad alberlo -->
+    <record id="bancali_deposito_views_tree" model="ir.ui.view">
+        <field name="name">Depositi bancali</field>
+        <field name="model">bancali.deposito</field>
+        <field name="arch" type="xml">
+            <tree string="Movimentazione Bancali">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="address"/>
+                <field name="zip" widget="integer" class="o_address_zip" options="{'format': 0}"/>  <!-- Da Odoo >= 15 dovrebbe mostrare gli interi senza punto separatore (10000 e non 10.000)-->
+                <field name="city"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="bancali_deposito_views_form" model="ir.ui.view">
+        <field name="name">Depositi bancali</field>
+        <field name="model">bancali.deposito</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" type="object" name="get_bancali">
+                                <img src="/odoo-bancali/static/src/img/icon_1.png" alt="Pallets"  style="height: 40px;margin-left: 10px;"/>
+                                <field string="Bancali" name="bancale_count" decoration-success="bancale_count &lt; 0" decoration-danger="bancale_count &gt; 0"/>
+                                <span>Bancali</span>
+                        </button>
+                    </div>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="address"/>
+                        <field name="zip" widget="integer" class="o_address_zip" options="{'format': 0}"/>  <!-- Da Odoo >= 15 dovrebbe mostrare gli interi senza punto separatore (10000 e non 10.000)-->
+                        <field name="city"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

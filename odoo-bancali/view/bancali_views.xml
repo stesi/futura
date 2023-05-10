@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="bancali" model="ir.actions.act_window">
+        <field name="name">Movimentazione bancali</field>
+        <field name="res_model">bancali</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Relativo alla visualizzazione della tabella ad alberlo -->
+    <record id="bancali_views_tree" model="ir.ui.view">
+        <field name="name">Movimentazione bancali</field>
+        <field name="model">bancali</field>
+        <field name="arch" type="xml">
+            <tree string="Movimentazione Bancali" default_order="data_movimentazione desc" > 
+                <field name="data_movimentazione"/>
+                <field name="tipologia_id"/>
+                <field name="azienda_id"/>
+                <field name="ricevuti" sum="ricevuti"/>
+                <field name="consegnati" sum="consegnati"/>
+                <field name="differenza" sum="differenza"/>
+                <field name="azienda_id"/>
+                <field name="deposito_id"/>
+                <field name="buono_bancali" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="bancali_form_view" model="ir.ui.view">
+        <field name="name">Movimentazione bancali</field>
+        <field name="model">bancali</field>
+        <field name="arch" type="xml">
+            <form>
+                <!-- <header>
+                    <button name="create_wizard" string="Delete record" class="oe_edit_only" type="object" attrs="{'invisible': [('id', '=', False)]}" />
+                </header>                 -->
+                <sheet>
+                    <group>
+                        <field name="id" attrs="{'invisible': 1}"/>
+                        <field name="data_movimentazione"/>
+                        <field name="tipologia_id"/>
+                        <field name="azienda_id"/>
+                        <field name="ricevuti"/>
+                        <field name="consegnati"/>
+                        <field name="deposito_id"/>
+                        <field name="buono_bancali"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
