@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="fleet_vehicle_smart_button" model="ir.ui.view">
+            <field name="name">fleet.view.buttons</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+                <div name="button_box" position="inside">
+                    <button class="oe_stat_button" type="object" name="get_bancali">
+                        <img src="/odoo-bancali/static/src/img/icon_1.png" alt="Pallets"  style="height: 40px;margin-left: 10px;"/>
+                            <field string="Bancali" name="bancale_count" decoration-success="bancale_count &lt; 0" decoration-danger="bancale_count &gt; 0"/>
+                            <span>Bancali</span>
+                    </button>
+                </div>
+            </field>
+        </record>
+
+
+</odoo>

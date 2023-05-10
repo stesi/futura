@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="bancali_tipologia" model="ir.actions.act_window">
+        <field name="name">Deposito bancali</field>
+        <field name="res_model">bancali.tipologia</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Relativo alla visualizzazione della tabella ad alberlo -->
+    <record id="bancali_tipologia_views_tree" model="ir.ui.view">
+        <field name="name">Deposito bancali</field>
+        <field name="model">bancali.tipologia</field>
+        <field name="arch" type="xml">
+            <tree string="Tipologia Bancali">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

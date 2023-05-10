@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- MENU ROOT -->
+
+    <menuitem id="bancali_menu_root"
+    name="Bancali"/>
+
+    <!-- MENU PRIMO LIVELLO -->
+
+    <menuitem id="bancali_first_level_menu" 
+    name="Bancali"
+    parent="bancali_menu_root"/>
+
+    <menuitem id="deposito_first_level_menu" 
+    name="Depositi"
+    parent="bancali_menu_root"/>
+    
+    <!-- <menuitem id="fatturazione_bancali_first_level_menu" 
+    action="bancali_fatturazione"
+    name="Fatturazione"
+    parent="bancali_menu_root"/> -->
+
+    <!-- MENU ACTION -->
+
+    <menuitem id="bancali_movimentazione_menu_action"
+    action="bancali"
+    parent="bancali_first_level_menu"
+    name="Movimentazione Bancali"/>
+
+    <menuitem id="bancali_tipologia_menu_action"
+    action="bancali_tipologia"
+    parent="bancali_first_level_menu"
+    name="Tipologia Bancali"/>
+    
+    <menuitem id="depositi_menu_action"
+    action="bancali_deposito"
+    parent="deposito_first_level_menu"
+    name="Depositi Bancali"/>
+    
+</odoo>
