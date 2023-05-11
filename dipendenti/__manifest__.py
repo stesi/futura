@@ -8,6 +8,6 @@
         # # Settaggi per accesso ai contenuti
         'data/ir.model.access.csv',
         # # Caricamento delle view,
-        'view/hr_update.xml',
+        # 'view/hr_update.xml',
     ],
 }
