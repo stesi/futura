@@ -29,9 +29,3 @@ class PworkSetting(models.Model):
     
     token = fields.Char()
     
-    
-# DA ELIMINARE POICHE' GIA' INSERITO DA STESI
-class FleetVehicleUpdate(models.Model):
-    _inherit = "fleet.vehicle"
-    
-    organization_id = fields.Many2one('res.partner', string="Organization")
