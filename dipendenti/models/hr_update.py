@@ -29,7 +29,7 @@ class PworkSetting(models.Model):
     
     token = fields.Char()
     
-class FleetVehicleUpdate(models.Model):
+class FleetVehicle(models.Model):
     _inherit = "fleet.vehicle"
     
     state_vehicle = fields.Selection([('ATTIVO', 'ATTIVO'),('IN ARRIVO', 'IN ARRIVO'),('INCIDENTATO','INCIDENTATO'),('RESTITUITO','RESTITUITO')], default="ATTIVO")
