@@ -32,13 +32,13 @@ print(','.join(fields))
 # Recupero dei dati di ogni record e scrittura del CSV
 partner_ids = models.execute_kw(
     db, uid, password,
-    'res.partner', 'search',
+    'fleet.vehicle.model.brand', 'search',
     [[]],
 )
 for partner_id in partner_ids:
     partner_data = models.execute_kw(
         db, uid, password,
-        'res.partner', 'read',
+        'fleet.vehicle.model.brand', 'read',
         [partner_id, fields],
     )[0]
     # Conversione dei valori delle colonne in stringhe per il CSV

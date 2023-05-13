@@ -4,7 +4,10 @@ import xml.etree.ElementTree as ET
 import json, ssl
 from codicefiscale import isvalid
 from datetime import datetime
+from COCOZZA_logs import START_LOGS, PRINT
+import COCOZZA_connectDb
 
+START_LOGS()
 
 
 USERNAME = "futuraWS"
@@ -15,7 +18,7 @@ CODAZIENDA = "0020050016"
 
 
 
-print("Avvio connessione")
+PRINT("Avvio connessione")
 
 url = 'https://futura.presenze-online.it/webservice/ws.asmx'
 headers = {
@@ -40,17 +43,17 @@ payload = '''<?xml version="1.0" encoding="utf-8"?>
     </soap12:Body>
 </soap12:Envelope>'''.format(USERNAME, PASSWORD, IP, SESSION, CODAZIENDA)
 
-print("Invio della richiesta HTTP POST")
+PRINT("Invio della richiesta HTTP POST")
 
 # Invio della richiesta HTTP POST
 response = requests.post(url, headers=headers, data=payload)
 
 
-print("Stampa dello stato della risposta HTTP e del contenuto della risposta")
+PRINT("Stampa dello stato della risposta HTTP e del contenuto della risposta")
 
 # stampa dello stato della risposta HTTP e del contenuto della risposta
-print(response.status_code)
-print(response.content)
+PRINT(response.status_code)
+PRINT(response.content)
 
 
 # Analisi del documento XML
@@ -75,16 +78,16 @@ data_ultimo_upd = data['Generics']['DataUltimoUpd']
 gruppo_user = data['Generics']['GruppoUser']
 key_public = data['Generics']['KeyPublic']
 
-print("Uid: " + uid)
-print("azienda: " + azienda)
-print("email: " + email)
-print("livello: " + str(livello))
-print("nome: " + nome)
-print("data scadenza: " + data_scadenza)
-print("data scadenza privacy: " + data_scadenza_privacy)
-print("data ultimo upd: " + data_ultimo_upd)
-print("gruppo user: " + gruppo_user)
-print("Key public: " + key_public)
+PRINT("Uid: " + uid)
+PRINT("azienda: " + azienda)
+PRINT("email: " + email)
+PRINT("livello: " + str(livello))
+PRINT("nome: " + nome)
+PRINT("data scadenza: " + data_scadenza)
+PRINT("data scadenza privacy: " + data_scadenza_privacy)
+PRINT("data ultimo upd: " + data_ultimo_upd)
+PRINT("gruppo user: " + gruppo_user)
+PRINT("Key public: " + key_public)
 
 
 payload = '''<?xml version="1.0" encoding="utf-8"?>
@@ -98,17 +101,17 @@ payload = '''<?xml version="1.0" encoding="utf-8"?>
     </soap12:Body>
 </soap12:Envelope>'''.format(uid, CODAZIENDA)
 
-print("Invio della richiesta HTTP POST")
+PRINT("Invio della richiesta HTTP POST")
 
 # Invio della richiesta HTTP POST
 response = requests.post(url, headers=headers, data=payload)
 
 
-print("Stampa dello stato della risposta HTTP e del contenuto della risposta")
+PRINT("Stampa dello stato della risposta HTTP e del contenuto della risposta")
 
 # # stampa dello stato della risposta HTTP e del contenuto della risposta
-# print(response.status_code)
-# print(response.content)
+# PRINT(response.status_code)
+# PRINT(response.content)
 
 
 root = ET.fromstring(response.content)
@@ -117,41 +120,14 @@ ns = {'p': 'https://presenze-online.it/'}
 result = root.find('.//p:getListDipendentiResult', namespaces=ns).text.strip()
 
 
-# print(result)
+# PRINT(result)
 
-# connessione al server odoo
-url = 'https://futurasl-test-import-anomalie3-8232542.dev.odoo.com/'
-db = 'futurasl-test-import-anomalie3-8232542'
-username = 'api@api.it'
-password = 'Temp1234'
-context = ssl._create_unverified_context()
-
-
-common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url), context=context)
-models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url), context=context)
-
-
-uid = common.authenticate(db, username, password, {})
-
-if uid:
-    print("autenticazione avvenuta")
-else:
-    print("autenticazione fallita")
-
+# Avvio delle connessione alle api di Odoo
+COCOZZA_connectDb.start()
 
 stringa_corretta1 = result.replace('false', 'False')
 stringa_corretta2 = stringa_corretta1.replace('true', 'True')
 
-context = ssl._create_unverified_context()
-
-
-# stabilisci la connessione all'istanza di Odoo
-common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url), context=context)
-models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url), context=context)
-
-uid = common.authenticate(db, username, password, {})
-
-print("Connessione all'istanza di Odoo stabilita con successo")
 
 cf = ['BDAHBB87M09Z352X','SDAZKR88825Z200D','DNGGRL99L22182V', 'LAFWQS94E08Z236O','GPKPRC86C12Z306Z','MRTMTT91D08F205J','SCRNHT99C10Z140X']
 
@@ -170,9 +146,9 @@ with open('object.txt', 'a') as f:
 for record in object['Generics']:
     azienda_id = models.execute_kw(db, uid, password, 'res.company', 'search', [[('name', '=', record['Azienda'])]])
     azienda_id = azienda_id[0]
-    print('Questo è azienda_ID:')
-    print(azienda_id)
-    print(record)
+    PRINT('Questo è azienda_ID:')
+    PRINT(azienda_id)
+    PRINT(record)
     if record['Abilitato'] == True:
         # se è attivo
         controllo_cf = models.execute_kw(db, uid, password, 'res.partner', 'search', [[('l10n_it_codice_fiscale', '=', record['DipCodFiscale'])]])
@@ -181,7 +157,7 @@ for record in object['Generics']:
             if isvalid(record['DipCodFiscale']):
                 if not record['DipCodFiscale'] in cf:
                     name = record['Nome'] + " " + record['Cognome']
-                    print("Codice fiscale non trovato.\nProcedo con la creasione del res.partner")
+                    PRINT("Codice fiscale non trovato.\nProcedo con la creasione del res.partner")
                     res_partner_data = {
                         'name': name,
                         'first_name': record['Nome'],
@@ -189,9 +165,9 @@ for record in object['Generics']:
                         'active': record['Abilitato'],
                         'l10n_it_codice_fiscale': record['DipCodFiscale'],
                     }
-                    print("Creazione res.partner eseguita.\nProcedo con la creazione del record in hr.employee")
+                    PRINT("Creazione res.partner eseguita.\nProcedo con la creazione del record in hr.employee")
                     res_partner_id = models.execute_kw(db, uid, password, 'res.partner', 'create', [res_partner_data])
-                    print("res_partner_id = " + str(res_partner_id))
+                    PRINT("res_partner_id = " + str(res_partner_id))
                     if record['DipSesso'] == "M":
                         sesso = "male"
                     elif record['DipSesso'] == "F":
@@ -203,7 +179,7 @@ for record in object['Generics']:
                         data2 = data.date().strftime('%Y-%m-%d')
                     else:
                         data2 = '1900-01-01'
-                    print("DATA = ", data2)
+                    PRINT("DATA = ", data2)
                     hr_employ_data = {
                         'name': record['Nome'] + " " + record['Cognome'],
                         'first_name': record['Nome'],
@@ -218,27 +194,27 @@ for record in object['Generics']:
                         #'res_partner_id': res_partner_id,
                     }
                     employee_id = models.execute_kw(db, uid, password, 'hr.employee', 'create', [hr_employ_data])
-                    print("Creazione record in hr.employee eseguita")
+                    PRINT("Creazione record in hr.employee eseguita")
                     models.execute_kw(db, uid, password, 'hr.employee', 'write', [[employee_id], {'address_home_id': res_partner_id}])
-                    print("Appena associato employee id = " + str(employee_id) + " al contatto id = " + str(res_partner_id))
+                    PRINT("Appena associato employee id = " + str(employee_id) + " al contatto id = " + str(res_partner_id))
                 else:
-                    print("codice fiscale presente nella lista nera")
+                    PRINT("codice fiscale presente nella lista nera")
                     with open('saltati.txt', 'a') as f:
                         f.write(json.dumps(record)+",")
             else:
-                print("il codice fiscale non è corretto")
+                PRINT("il codice fiscale non è corretto")
                 with open('saltati.txt', 'a') as f:
                     f.write(json.dumps(record)+",")
         else:
-            print("Codice fiscale presente in res.partner")
+            PRINT("Codice fiscale presente in res.partner")
             with open('saltati.txt', 'a') as f:
                 f.write(json.dumps(record)+",")
     else:
-        print("Utente NON attivo")
-        print("Controllo se il dipendente è già inserito trai dipendenti.")
+        PRINT("Utente NON attivo")
+        PRINT("Controllo se il dipendente è già inserito trai dipendenti.")
         employee_ids = models.execute_kw(db, uid, password, 'hr.employee', 'search', [[('pwork_azienda_id', '=', record['idAz']), ('pwork_dipendente_id', '=', record['idDip'])]])
         if employee_ids == []:
-            print("Dipendente non inserito...")
+            PRINT("Dipendente non inserito...")
             if record['DipSesso'] == "M":
                 sesso = "male"
             elif record['DipSesso'] == "F":
@@ -250,7 +226,7 @@ for record in object['Generics']:
                 data2 = data.date().strftime('%Y-%m-%d')
             else:
                 data2 = '1900-01-01'
-            print("DATA = ", data2)
+            PRINT("DATA = ", data2)
             hr_employ_data = {
                         'name': record['Nome'] + " " + record['Cognome'],
                         'first_name': record['Nome'],
@@ -264,132 +240,8 @@ for record in object['Generics']:
                         'company_id': azienda_id,
                     }
             models.execute_kw(db, uid, password, 'hr.employee', 'create', [hr_employ_data])
-            print("Creazione record in hr.employee eseguita")
+            PRINT("Creazione record in hr.employee eseguita")
         else:
             with open('saltati.txt', 'a') as f:
                 f.write(json.dumps(record)+",")
 
-#####
-
-
-
-# i = 0
-# for record in object['Generics']:
-#     i = record['idDip']
-#     print("i vale = ", i)
-#     if 1 == 1:
-#         print(record)
-#         if record['Abilitato'] == True:
-#             print("L'utente è attivo.\nControllo se il suo codice fiscale è già presente tra i nostri res.partner")
-#             controllo_cf = models.execute_kw(db, uid, password, 'res.partner', 'search', [[('l10n_it_codice_fiscale', '=', record['DipCodFiscale'])]])
-#             print("controllo cf:")
-#             print(controllo_cf)
-#             name = record['Nome'] + " " + record['Cognome']
-#             if record['DipCodFiscale'] in cf:
-#                 print("TROVATO CODICE FISCALE NELLA LISTA CF")
-#             if not record['DipCodFiscale'] in cf:
-#                 if isvalid(record['DipCodFiscale']):
-#                     if controllo_cf == []:
-#                         print("Codice fiscale non trovato.\nProcedo con la creasione del res.partner")
-#                         res_partner_data = {
-#                             'name': name,
-#                             'first_name': record['Nome'],
-#                             'last_name': record['Cognome'],
-#                             'l10n_it_codice_fiscale': record['DipCodFiscale']
-#                         }
-#                         print("Creazione res.partner eseguita.\nProcedo con la creazione del record in hr.employee")
-#                         res_partner_id = models.execute_kw(db, uid, password, 'res.partner', 'create', [res_partner_data])
-#                         if record['DipSesso'] == "M":
-#                             sesso = "male"
-#                         else:
-#                             sesso = "female"
-#                         if 'DipDataNascita' in record:
-#                             data = datetime.strptime(record['DipDataNascita'], '%Y-%m-%dT%H:%M:%S')
-#                             data2 = data.date().strftime('%Y-%m-%d')
-#                         else:
-#                             data2 = '1900-01-01'
-#                         print("DATA = ", data2)
-#                         hr_employ_data = {
-#                             'name': "Nome Cognome aa",
-#                             'first_name': record['Nome'],
-#                             'last_name': record['Cognome'],
-#                             'pwork_cf': record['DipCodFiscale'],
-#                             'pwork_azienda_id': record['idAz'],
-#                             'pwork_dipendente_id': record['idDip'],
-#                             'active': record['Abilitato'],
-#                             'gender': sesso,
-#                             'birthday': data2,
-#                             #'res_partner_id': res_partner_id,
-#                         }
-#                         models.execute_kw(db, uid, password, 'hr.employee', 'create', [hr_employ_data])
-#                         print("Creazione record in contratti.dipendenti eseguita")
-#                     else:
-#                         print("Utente non abilitato.\nControllo se idAzienda e idDipendente sono già inseriti in hr.employee")
-#                         controllo_matricola = models.execute_kw(db, uid, password, 'hr.employee', 'search', [[('pwork_azienda_id', '=', record['idAz']), ('pwork_dipendente_id', '=', record['idDip'])]])
-#                         if controllo_matricola == []:
-#                             hr_employ_data = {
-#                             'name': "Nome Cognome aa",
-#                             'first_name': record['Nome'],
-#                             'last_name': record['Cognome'],
-#                             'pwork_cf': record['DipCodFiscale'],
-#                             'pwork_azienda_id': record['idAz'],
-#                             'pwork_dipendente_id': record['idDip'],
-#                             'active': record['Abilitato'],
-#                             }
-#                             models.execute_kw(db, uid, password, 'hr.employee', 'create', [hr_employ_data])
-#                             print("Ho creato un record nella tabella contratti.dipendenti")
-#                         else:
-#                             print("Record già registrato in contratti.dipendenti")
-#                     with open('file.txt', 'a') as f:
-#                         f.write(json.dumps(record)+",")
-#                 else:
-#                     with open('file.txt', 'a') as f:
-#                         f.write(json.dumps(record)+",")
-
-                    
-#     #     #     #controllo se3 già inserito in contratti.dipendenti
-#     #     #     controllo = common.execute_kw(db, uid, password, 'contratti.dipendenti', 'search', [[('pwork_azienda_id', '=', record['idAzienda']), ('pwork_dipendente_id', '=', record['idDipendente'])]])
-#     #     #     if controllo != []:
-#     #     #         # se non è presente lo creo
-#     #     #         name = record['Nome'] + " " + record['Cognome']
-                
-#     #     #         set_contratti_dipendenti_data = common.env['contratti.dipendenti'].create(contratti_dipendenti_data)
-#     #     #         print("Creazione contratto dipendente eseguita.")
-
-#     #     #     print("Controllo se il dipendente è già inserito trai dipendenti.")
-#     #     #     employee_ids = common.execute_kw(db, uid, password, 'hr.employee', 'search', [[('pwork_azienda_id', '=', record['idAzienda']), ('pwork_dipendente_id', '=', record['idDipendente'])]])
-#     #     #     if employee_ids == []:
-#     #     #         print("L'utente non è presente tra i dipendenti.\nCreo un nuovo dipente.")
-#     #     #         name = record['Nome'] + " " + record['Cognome']
-#     #     #         employee_data = {
-#     #     #             'name': name,
-#     #     #             'first_name': record['Nome'],
-#     #     #             'last_name': record['Cognome'],
-#     #     #             'pwork_cf': record['DipCodFiscale'],
-#     #     #             'pwork_azienda_id': record['idAzienda'],
-#     #     #             'pwork_dipendente_id': record['idDip'],
-#     #     #         }
-#     #     #         employee_id = common.env['hr.employee'].create(employee_data)
-#     #     #         print("User creato\nControllo se il dipendente è attivo.")
-#     #     #         if record['Abilitato'] == True:
-#     #     #             print("L'utente è abilitato.\nControllo se l'user è già inserito tramite controllo sul CF")
-#     #     #             user_id = common.execute_kw(db, uid, password, 'res.partner', 'search', [[('fiscalcode', '=', record['DipCodFiscale'])]])
-#     #     #             if user_ids == []:
-#     #     #                 print("Non è associato alcun user.\nProcedo alla creazione dell'user.")
-#     #     #                 user_data = {
-#     #     #                     'name': name,
-#     #     #                     'first_name': record['Nome'],
-#     #     #                     'last_name': record['Cognome'],
-#     #     #                 }
-#     #     #                 common.execute_kw(db, uid, password, 'res.partner', 'create', [user_data])
-
-
-#     #     # """ # Creazione di un nuovo record nella tabella hr.employee e res.users
-#     #     # employee_data = {'name': 'Mario Rossi'}
-#     #     # employee_id = odoo.env['hr.employee'].create(employee_data)
-#     #     # user_data = {'name': employee_data['name'], 'login': 'mario.rossi', 'password': 'myPassword'}
-#     #     # user_id = odoo.env['res.users'].create(user_data)
-#     #     # odoo.env['hr.employee'].write(employee_id, {'user_id': user_id})
-
-#     #     # print("Record creato con successo con ID:", employee_id, "e ID utente:", user_id)
-#     #     # """
