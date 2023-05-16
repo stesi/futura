@@ -2,17 +2,13 @@
 <odoo>
 
     <record id="view_fleet_vehicle_form" model="ir.ui.view">
-            <field name="name">fleet.vehicle.update</field>
+            <field name="name">fleet.vehicle</field>
             <field name="model">fleet.vehicle</field>
-            <field name="inherit_id" ref="fleet.vehicle" />
+            <field name="inherit_id" ref="fleet.fleet_vehicle_view_form" />
             <field name="arch" type="xml">
-                <xpath expr="//div[@class='oe_title']//h2" position="after">
-                    <!-- <label for="state_vehicle">
-                    </label> -->
-                    <h2>
-                        <!-- <field name="state_vehicle" class="oe_inline"/> -->
-                        <field name="euro" class="oe_inline"/>
-                    </h2>
+                <xpath expr="//field[@name='tag_ids']" position="after">
+                    <br/><label for="state_vehicle"/>
+                    <field name="state_vehicle"/>
                 </xpath>
             </field>
         </record>
