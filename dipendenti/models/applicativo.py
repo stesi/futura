@@ -2,13 +2,12 @@ import xmlrpc.client
 import requests
 import xml.etree.ElementTree as ET
 import json, ssl
-from codicefiscale import isvalid
+from codicefiscale import codicefiscale
 from datetime import datetime
 from COCOZZA_logs import START_LOGS, PRINT
 import COCOZZA_connectDb
 
 START_LOGS()
-
 
 USERNAME = "futuraWS"
 PASSWORD = "HGDJSA47432MS"
@@ -143,20 +142,22 @@ with open('object.txt', 'a') as f:
 
 #########
 
+i = 0
+
 for record in object['Generics']:
-    azienda_id = models.execute_kw(db, uid, password, 'res.company', 'search', [[('name', '=', record['Azienda'])]])
+    azienda_id = COCOZZA_connectDb.models.execute_kw(COCOZZA_connectDb.db, COCOZZA_connectDb.uid, COCOZZA_connectDb.password, 'res.company', 'search', [[('name', '=', record['Azienda'])]])
     azienda_id = azienda_id[0]
     PRINT('Questo è azienda_ID:')
     PRINT(azienda_id)
     PRINT(record)
     if record['Abilitato'] == True:
         # se è attivo
-        controllo_cf = models.execute_kw(db, uid, password, 'res.partner', 'search', [[('l10n_it_codice_fiscale', '=', record['DipCodFiscale'])]])
+        controllo_cf = COCOZZA_connectDb.models.execute_kw(COCOZZA_connectDb.db, COCOZZA_connectDb.uid, COCOZZA_connectDb.password, 'res.partner', 'search', [[('l10n_it_codice_fiscale', '=', record['DipCodFiscale'])]])
         if controllo_cf == []:
             # se il cf non è presente verifico che sia valido
-            if isvalid(record['DipCodFiscale']):
+            if codicefiscale.is_valid(record['DipCodFiscale']):
                 if not record['DipCodFiscale'] in cf:
-                    name = record['Nome'] + " " + record['Cognome']
+                    name = record['Cognome'] + " " + record['Nome']
                     PRINT("Codice fiscale non trovato.\nProcedo con la creasione del res.partner")
                     res_partner_data = {
                         'name': name,
@@ -166,7 +167,7 @@ for record in object['Generics']:
                         'l10n_it_codice_fiscale': record['DipCodFiscale'],
                     }
                     PRINT("Creazione res.partner eseguita.\nProcedo con la creazione del record in hr.employee")
-                    res_partner_id = models.execute_kw(db, uid, password, 'res.partner', 'create', [res_partner_data])
+                    res_partner_id = COCOZZA_connectDb.models.execute_kw(COCOZZA_connectDb.db, COCOZZA_connectDb.uid, COCOZZA_connectDb.password, 'res.partner', 'create', [res_partner_data])
                     PRINT("res_partner_id = " + str(res_partner_id))
                     if record['DipSesso'] == "M":
                         sesso = "male"
@@ -179,9 +180,9 @@ for record in object['Generics']:
                         data2 = data.date().strftime('%Y-%m-%d')
                     else:
                         data2 = '1900-01-01'
-                    PRINT("DATA = ", data2)
+                    PRINT(f"DATA = {data2}")
                     hr_employ_data = {
-                        'name': record['Nome'] + " " + record['Cognome'],
+                        'name': record['Cognome'] + " " + record['Nome'],
                         'first_name': record['Nome'],
                         'last_name': record['Cognome'],
                         'pwork_cf': record['DipCodFiscale'],
@@ -193,9 +194,9 @@ for record in object['Generics']:
                         'company_id': azienda_id,
                         #'res_partner_id': res_partner_id,
                     }
-                    employee_id = models.execute_kw(db, uid, password, 'hr.employee', 'create', [hr_employ_data])
+                    employee_id = COCOZZA_connectDb.models.execute_kw(COCOZZA_connectDb.db, COCOZZA_connectDb.uid, COCOZZA_connectDb.password, 'hr.employee', 'create', [hr_employ_data])
                     PRINT("Creazione record in hr.employee eseguita")
-                    models.execute_kw(db, uid, password, 'hr.employee', 'write', [[employee_id], {'address_home_id': res_partner_id}])
+                    COCOZZA_connectDb.models.execute_kw(COCOZZA_connectDb.db, COCOZZA_connectDb.uid, COCOZZA_connectDb.password, 'hr.employee', 'write', [[employee_id], {'address_home_id': res_partner_id}])
                     PRINT("Appena associato employee id = " + str(employee_id) + " al contatto id = " + str(res_partner_id))
                 else:
                     PRINT("codice fiscale presente nella lista nera")
@@ -212,7 +213,7 @@ for record in object['Generics']:
     else:
         PRINT("Utente NON attivo")
         PRINT("Controllo se il dipendente è già inserito trai dipendenti.")
-        employee_ids = models.execute_kw(db, uid, password, 'hr.employee', 'search', [[('pwork_azienda_id', '=', record['idAz']), ('pwork_dipendente_id', '=', record['idDip'])]])
+        employee_ids = COCOZZA_connectDb.models.execute_kw(COCOZZA_connectDb.db, COCOZZA_connectDb.uid, COCOZZA_connectDb.password, 'hr.employee', 'search', [[('pwork_azienda_id', '=', record['idAz']), ('pwork_dipendente_id', '=', record['idDip']), ('active', 'ilike', False)]])
         if employee_ids == []:
             PRINT("Dipendente non inserito...")
             if record['DipSesso'] == "M":
@@ -226,9 +227,9 @@ for record in object['Generics']:
                 data2 = data.date().strftime('%Y-%m-%d')
             else:
                 data2 = '1900-01-01'
-            PRINT("DATA = ", data2)
+            PRINT(f"DATA = {data2}")
             hr_employ_data = {
-                        'name': record['Nome'] + " " + record['Cognome'],
+                        'name': record['Cognome'] + " " + record['Nome'],
                         'first_name': record['Nome'],
                         'last_name': record['Cognome'],
                         'pwork_cf': record['DipCodFiscale'],
@@ -239,9 +240,35 @@ for record in object['Generics']:
                         'birthday': data2,
                         'company_id': azienda_id,
                     }
-            models.execute_kw(db, uid, password, 'hr.employee', 'create', [hr_employ_data])
+            employee_id = COCOZZA_connectDb.models.execute_kw(COCOZZA_connectDb.db, COCOZZA_connectDb.uid, COCOZZA_connectDb.password, 'hr.employee', 'create', [hr_employ_data])
             PRINT("Creazione record in hr.employee eseguita")
+            # Controllo se è già stato creato un res.partner e nel caso lo creo
+            PRINT("Controllo se esiste il res.partner associabile al dipendente appena creato.")
+        
+
+            if codicefiscale.is_valid(record['DipCodFiscale']) == False:
+                continue
+            cod_fiscale = record['DipCodFiscale'][0:14]
+            PRINT(f"codice fiscale {cod_fiscale}")
+            res_partner_id = COCOZZA_connectDb.sqlSearchMultiple('res.partner', [('name', 'ilike', record['Cognome'] + " " + record['Nome']),('l10n_it_codice_fiscale', 'ilike', cod_fiscale)])
+            if res_partner_id == []:
+                res_partner_data = {
+                        'name': record['Cognome'] + " " + record['Nome'],
+                        'first_name': record['Nome'],
+                        'last_name': record['Cognome'],
+                        'active': record['Abilitato'],
+                        'l10n_it_codice_fiscale': record['DipCodFiscale'],
+                    }
+                PRINT("Creazione res.partner eseguita.\nProcedo con la creazione del record in hr.employee")
+                res_partner_id2 = COCOZZA_connectDb.models.execute_kw(COCOZZA_connectDb.db, COCOZZA_connectDb.uid, COCOZZA_connectDb.password, 'res.partner', 'create', [res_partner_data])
+            else:
+                res_partner_id2 = res_partner_id[0]['id']
+            # Faccio l'associazione del dipendente con il res.partner
+            PRINT(f"Stampo employee_id = {employee_id}")
+            PRINT(f"Stampo res_partner_id = {res_partner_id2}")
+            COCOZZA_connectDb.models.execute_kw(COCOZZA_connectDb.db, COCOZZA_connectDb.uid, COCOZZA_connectDb.password, 'hr.employee', 'write', [[employee_id], {'address_home_id': res_partner_id2}])
+            PRINT("Appena associato employee id = " + str(employee_id) + " al contatto id = " + str(res_partner_id2))   
         else:
             with open('saltati.txt', 'a') as f:
                 f.write(json.dumps(record)+",")
-
+    

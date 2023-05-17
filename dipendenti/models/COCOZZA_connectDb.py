@@ -2,8 +2,8 @@ import ssl, xmlrpc.client
 from COCOZZA_logs import PRINT
 
 # connessione al server odoo
-url = 'https://futurasl-test-import-anomalie3-8235343.dev.odoo.com/'
-db = 'futurasl-test-import-anomalie3-8235343'
+url = 'https://futurasl-test-import-anomalie3-8290237.dev.odoo.com/'
+db = 'futurasl-test-import-anomalie3-8290237'
 username = 'api@api.it'
 password = 'Temp1234'
 context = ssl._create_unverified_context()
@@ -39,3 +39,4 @@ def sqlCreate(tabella, oggetto):
     result = models.execute_kw(db, uid, password,tabella, 'create',[[oggetto]])
     return result
     
+print(sqlSearchMultiple('hr.employee', [('last_name', 'ilike', 'ZORZENON'),('active', 'ilike', False)]))

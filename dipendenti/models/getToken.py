@@ -1,7 +1,25 @@
 import xmlrpc.client
 import requests, logging
 import xml.etree.ElementTree as ET
-import json
+import json ,ssl
+import COCOZZA_connectDb
+from datetime import datetime, timedelta
+
+context = ssl._create_unverified_context()
+
+COCOZZA_connectDb.start()
+datetime_token = COCOZZA_connectDb.sqlSearch('pwork.setting', ['id', '=', 1])
+print(datetime_token[0]['__last_update'])
+data_datetime = datetime.strptime(datetime_token[0]['__last_update'], "%Y-%m-%d %H:%M:%S")
+data_attuale = datetime.now()
+differenza = data_attuale - data_datetime
+if differenza >= timedelta(hours=24):
+    print("Sono passate 24 ore")
+else:
+    print("Non sono ancora passate 24 ore")
+
+
+quit()
 
 _logger = logging.getLogger(__name__)
 
@@ -86,20 +104,20 @@ print("gruppo user: " + gruppo_user)
 print("Key public: " + key_public)
 
 # parametri per la connessione all'istanza di Odoo
-url = 'http://localhost:8069/'
-db = 'Odoodb16'
-username = 'luca.cocozza@futurasl.com'
+url = 'https://futurasl-test-import-anomalie3-8253177.dev.odoo.com/'
+db = 'futurasl-test-import-anomalie3-8253177'
+username = 'api@api.it'
 password = 'Temp1234'
 
 # stabilisci la connessione all'istanza di Odoo
-common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
+common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url), context=context)
 uid = common.authenticate(db, username, password, {})
 
 _logger.info("Connessione all'istanza di Odoo stabilita con successo")
 print("Connessione all'istanza di Odoo stabilita con successo")
 
 # ottieni un oggetto per l'accesso ai metodi del modello "pwork.setting"
-models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
+models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url), context=context)
 model_name = 'pwork.setting'
 
 _logger.info("Oggetto per l'accesso ai metodi del modello 'pwork.setting' ottenuto con successo")

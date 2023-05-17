@@ -32,6 +32,6 @@ class PworkSetting(models.Model):
 class FleetVehicle(models.Model):
     _inherit = "fleet.vehicle"
     
-    state_vehicle = fields.Selection([('ATTIVO', 'ATTIVO'),('IN ARRIVO', 'IN ARRIVO'),('INCIDENTATO','INCIDENTATO'),('RESTITUITO','RESTITUITO')], default="ATTIVO")
+    stato_veicolo = fields.Selection([('ATTIVO', 'ATTIVO'),('IN ARRIVO', 'IN ARRIVO'),('INCIDENTATO','INCIDENTATO'),('RESTITUITO','RESTITUITO')], default="ATTIVO")
     euro = fields.Char()
     

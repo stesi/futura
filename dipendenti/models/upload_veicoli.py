@@ -46,7 +46,7 @@ for record in data:
     brand = record['BRAND']
     modello = record['MODELLO']
     categoria = record['TIPO']
-    eur = record['EURO']
+    euro = record['EURO']
     
     # Verifico se il brand, il modello e la targa sono già inseriti nel db
     is_targa = COCOZZA_connectDb.sqlSearch('fleet.vehicle', ['name', '=', targa])
@@ -118,7 +118,9 @@ for record in data:
                                                     'brand_id': is_brand[0]['id'],
                                                     'license_plate': targa,
                                                     'organization_id': is_cdc[0]['id'],
-                                                    'model_id': modello_id
+                                                    'model_id': modello_id,
+                                                    'euro': euro,
+                                                    'state_vehicle': stato
                                                     })
         PRINT("Veicolo aggiunto!")
     

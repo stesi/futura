@@ -2,8 +2,8 @@ import xmlrpc.client
 import ssl
 
 # Parametri di connessione
-url = 'https://futurasl-test-import-anomalie-8212813.dev.odoo.com/'
-db = 'futurasl-test-import-anomalie-8212813'
+url = 'https://futurasl-test-import-anomalie3-8253177.dev.odoo.com/'
+db = 'futurasl-test-import-anomalie3-8253177'
 username = 'api@api.it'
 password = 'Temp1234'
 context = ssl._create_unverified_context()
@@ -19,7 +19,7 @@ models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url), context=con
 # Recupero dei campi disponibili nella tabella res.partner
 partner_fields = models.execute_kw(
     db, uid, password,
-    'res.partner', 'fields_get',
+    'fleet.vehicle.log.services', 'fields_get',
     [], {'attributes': ['string']}
 )
 
@@ -32,13 +32,13 @@ print(','.join(fields))
 # Recupero dei dati di ogni record e scrittura del CSV
 partner_ids = models.execute_kw(
     db, uid, password,
-    'fleet.vehicle.model.brand', 'search',
+    'fleet.vehicle.log.services', 'search',
     [[]],
 )
 for partner_id in partner_ids:
     partner_data = models.execute_kw(
         db, uid, password,
-        'fleet.vehicle.model.brand', 'read',
+        'fleet.vehicle.log.services', 'read',
         [partner_id, fields],
     )[0]
     # Conversione dei valori delle colonne in stringhe per il CSV

@@ -2,8 +2,8 @@ import ssl
 import xmlrpc.client
 
 # Configurazione della connessione
-url = 'https://futurasl-test-import-anomalie-8212813.dev.odoo.com/'
-db = 'futurasl-test-import-anomalie-8212813'
+url = 'https://futurasl-test-import-anomalie3-8252636.dev.odoo.com/'
+db = 'futurasl-test-import-anomalie3-8252636'
 username = 'api@api.it'
 password = 'Temp1234'
 
