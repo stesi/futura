@@ -9,7 +9,7 @@
         'data/ir.model.access.csv',
         # # Caricamento delle view,
         # 'view/hr_update.xml',
-        'view/fleet_vehicle_update.xml'
+        'view/fleet_vehicle_update.xml',
         'view/hr_employee_update.xml'
     ],
 }
