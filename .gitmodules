@@ -137,3 +137,8 @@
 	path = ingegniamo/gtms_fleet_service_with_deduction
 	url = git@github.com:ingegniamo/gtms_fleet_service_with_deduction.git
 	branch = 16.0
+
+[submodule "ingegniamo/fleet_deduction_sign"]
+	path = ingegniamo/fleet_deduction_sign
+	url = git@github.com:ingegniamo/fleet_deduction_sign.git
+	branch = 16.0
