@@ -37,6 +37,8 @@ print(titles)
 
 
 for record in data:
+    if record['IDSINISTRI'] <= 0:
+        continue
     PRINT("\nSTAMPO RECORD\n\n")
     PRINT(record)
     
@@ -70,7 +72,7 @@ for record in data:
 
 
     # Recupero ID
-    service_type_log_id = COCOZZA_connectDb.sqlSearch('fleet.service.type', ['name', '=', 'Sinistro'])
+    service_type_log_id = COCOZZA_connectDb.sqlSearch('fleet.service.type', ['name', '=', 'Sinistri'])
     vehicle_id = COCOZZA_connectDb.sqlSearch('fleet.vehicle', ['license_plate', '=', targa])
     res_partner_id = COCOZZA_connectDb.sqlSearch('res.partner', ['name', '=', soggetto])
     
@@ -119,7 +121,7 @@ for record in data:
     COCOZZA_connectDb.sqlCreate('fleet.vehicle.log.services', {
         'description': "id vecchio gestionale " + str(id_sinistro),
         'service_type_id': service_type_log_id[0]['id'],
-        'date': str(data),
+        'date': str(data),  # DA INSERIRE L'ORA!!!
         'amount': valore_danno,
         'vehicle_id': vehicle_id[0]['id'],
         'purchaser_id': res_partner_id[0]['id'],

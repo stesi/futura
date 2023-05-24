@@ -2,8 +2,8 @@ import xmlrpc.client
 import ssl
 
 # Parametri di connessione
-url = 'https://futurasl-test-import-anomalie3-8253177.dev.odoo.com/'
-db = 'futurasl-test-import-anomalie3-8253177'
+url = 'https://futurasl-test-import-anomalie3-8356499.dev.odoo.com/'
+db = 'futurasl-test-import-anomalie3-8356499'
 username = 'api@api.it'
 password = 'Temp1234'
 context = ssl._create_unverified_context()
@@ -57,7 +57,8 @@ vehicle_models_data = [
     {'produttore': 'IVECO', 'modello': 'LARGE', 'categoria': 'FRIGO'},
     {'produttore': 'IVECO', 'modello': 'Sconosciuto', 'categoria': 'FRIGO'},
     {'produttore': 'FIAT', 'modello': 'DOBLO\'', 'categoria': 'FRIGO'},
-    {'produttore': 'Sconosciuto', 'modello': 'Sconosciuto', 'categoria': 'CENTINATO'}
+    {'produttore': 'Sconosciuto', 'modello': 'Sconosciuto', 'categoria': 'CENTINATO'}, 
+    {'produttore': 'Sconosciuto', 'modello': 'Sconosciuto', 'categoria': 'Sconosciuto'}, 
 ]
 
 # Recupero degli ID delle categorie

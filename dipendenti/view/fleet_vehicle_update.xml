@@ -7,8 +7,8 @@
             <field name="inherit_id" ref="fleet.fleet_vehicle_view_form" />
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='tag_ids']" position="after">
-                    <br/><label for="state_vehicle"/>
-                    <field name="state_vehicle"/>
+                    <br/><label for="stato_veicolo"/>
+                    <field name="stato_veicolo"/>
                 </xpath>
             </field>
         </record>

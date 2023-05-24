@@ -49,8 +49,8 @@ for record in data:
     euro = record['EURO']
     
     # Verifico se il brand, il modello e la targa sono già inseriti nel db
-    is_targa = COCOZZA_connectDb.sqlSearch('fleet.vehicle', ['name', '=', targa])
-    is_cdc = COCOZZA_connectDb.sqlSearch('res.partner', ['name', '=', cdc])
+    is_targa = COCOZZA_connectDb.sqlSearch('fleet.vehicle', ['name', '=', targa], '')
+    is_cdc = COCOZZA_connectDb.sqlSearch('res.partner', ['name', '=', cdc], '')
     
     # print("FACCIO UN POO' DI PRINT")
     # print(is_brand)
@@ -64,13 +64,13 @@ for record in data:
 
     # Verifico se la targa è già inserita
     PRINT("Controllo se la targa è inserita")
-    controllo_targa = COCOZZA_connectDb.sqlSearch('fleet.vehicle',['license_plate', '=', targa])
+    controllo_targa = COCOZZA_connectDb.sqlSearch('fleet.vehicle',['license_plate', '=', targa], '')
     print(controllo_targa)
     if controllo_targa == []:
         print("Entro nella if inerente al veicolo non esistente")
         PRINT(f"La targa {targa} non è esistente.")
         # Verifico se il brand esiste
-        is_brand = COCOZZA_connectDb.sqlSearch('fleet.vehicle.model.brand', ['name', '=', brand.lower().capitalize()])
+        is_brand = COCOZZA_connectDb.sqlSearch('fleet.vehicle.model.brand', ['name', '=', brand.lower().capitalize()], '')
         if is_brand == []:
             PRINT(f"il Brand {brand} non esiste. Procedo con la creazione.")
             is_brand = COCOZZA_connectDb.sqlCreate('fleet.vehicle.model.brand',{'name', '=', brand.lower().capitalize()})
@@ -80,7 +80,7 @@ for record in data:
         PRINT("Verifica del brand terminata")
         
         # Verifico se la categoria esiste
-        is_categoria = COCOZZA_connectDb.sqlSearch('fleet.vehicle.model.category', ['name', '=', categoria.lower().capitalize()])
+        is_categoria = COCOZZA_connectDb.sqlSearch('fleet.vehicle.model.category', ['name', '=', categoria.lower().capitalize()], '')
         if is_categoria == []:
             PRINT(f"La categoria {categoria} non esiste. Procedo con la creazione della categoria.")
             is_categoria = COCOZZA_connectDb.sqlCreate('fleet.vehicle.model.category', {'name': categoria.lower().capitalize()})
@@ -90,7 +90,7 @@ for record in data:
         PRINT("Verifica della categoria terminata")
 
         # Verifico che il modello esista
-        is_modello = COCOZZA_connectDb.sqlSearchMultiple('fleet.vehicle.model', [('name', '=', modello.lower().capitalize()), ('category_id', '=', is_categoria[0]['id']),('brand_id', '=', is_brand[0]['id'])],{'fields': ['id'], 'limit': 1})
+        is_modello = COCOZZA_connectDb.sqlSearchMultiple('fleet.vehicle.model', [('name', '=', modello.lower().capitalize()), ('category_id', '=', is_categoria[0]['id']), ('brand_id', '=', is_brand[0]['id'])])
         print(f"Stampo modello      : {is_modello}")
         if is_modello == []:
             PRINT(f"Il modello {modello} non esiste. Procedo con la creazione del modello.")
@@ -120,7 +120,7 @@ for record in data:
                                                     'organization_id': is_cdc[0]['id'],
                                                     'model_id': modello_id,
                                                     'euro': euro,
-                                                    'state_vehicle': stato
+                                                    'stato_veicolo': stato
                                                     })
         PRINT("Veicolo aggiunto!")
     

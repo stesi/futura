@@ -2,8 +2,8 @@ import xmlrpc.client
 import ssl
 
 # Parametri di connessione
-url = 'https://futurasl-test-import-anomalie3-8290237.dev.odoo.com/'
-db = 'futurasl-test-import-anomalie3-8290237'
+url = 'https://futurasl-test-import-anomalie3-8356499.dev.odoo.com/'
+db = 'futurasl-test-import-anomalie3-8356499'
 username = 'api@api.it'
 password = 'Temp1234'
 context = ssl._create_unverified_context()
@@ -25,6 +25,7 @@ categories_data = [
     {'name': 'TRASPORTO PERSONE'},
     {'name': 'FRIGO'},
     {'name': 'EUROCARGO'},
+    {'name': 'Sconosciuto'}
 ]
 
 # Creazione delle aziende in Odoo

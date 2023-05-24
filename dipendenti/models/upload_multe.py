@@ -34,9 +34,15 @@ print(titles)
 
 # COCOZZA_connectDb.start()
 
+sconosciuto1 = input("Hai creato il veicolo del produttore 'Sconosciuto', il modello 'Sconosciuto' e con la targa 'Sconosciuto'???")
+sconosciuto2 = input("Hai settato sul file excel le targe vuote con 'Sconosciuto'?\nHai settato sul file excel i soggetti vuoti con 'Sconosciuto'?")
 
+if sconosciuto1.lower() != "si" and sconosciuto2.lower() != "si":
+    quit()
 
 for record in data:
+    if record['IDMULTA'] >= 252:
+        continue
     PRINT("\nSTAMPO RECORD\n\n")
     PRINT(record)
     id_multa = record['IDMULTA']
@@ -54,11 +60,14 @@ for record in data:
     soggetto = record['SOGGETTO']
     note = record['INFRAZIONE']
 
+    # Creazione Datetime
+    ore, minuti = ora_verbale.split(':')
+    datetime = data_verbale.replace(hour=int(ore), minute=int(minuti))
     
     print(id_multa)    
     print(n_verbale)    
     print(intestatario)    
-    print(data_verbale)    
+    print(datetime)    
     print(ora_verbale)    
     print(luogo)    
     print(comune)    
@@ -68,7 +77,6 @@ for record in data:
     print(competenza)    
     print(decurtazione_punti)    
     print(soggetto) 
-    
     print(COCOZZA_connectDb.sqlSearch('res.partner',['name', 'ilike', soggetto]))
     
 
@@ -102,113 +110,32 @@ for record in data:
     
     saltare_soggetto = ['SENATORE ANTONIO', 'ZORDAN MASSIMO', "", "LOMBARDI SIMONE", "CAVE MICHELE", "DELLAL KARIM", "VECCHIETTI RUGGERO", "BELLASSAI EMILIANO"]
     saltare_targa = ['FB870DY', "EV096MK", "EY096MK"]
+
+    if soggetto == "":
+        print("")
+    PRINT("Procedo con la creazione della seguente multa:\n")
+    PRINT("N° verbale " + str(n_verbale) + " - id vecchio gestionale " + str(id_multa))
+    PRINT(f"date = {datetime}")
+    PRINT(f"amount = {importo}")
+    PRINT(f"vehicle_id = {vehicle_id[0]['id']}")
+    PRINT(f"Il soggetto è {soggetto}")
+    PRINT(f"purchaser_id = {res_partner_id[0]['id']}")
+    PRINT(f"deduction_point = {punti}")
+    PRINT(f"notes = {note}")
     
-    if soggetto not in saltare_soggetto:
-        if targa not in saltare_targa:
-            if soggetto == "":
-                print("")
-            PRINT("Procedo con la creazione della seguente multa:\n")
-            PRINT("N° verbale " + str(n_verbale) + " - id vecchio gestionale " + str(id_multa))
-            PRINT(f"date = {service_type_log_id[0]['id']}")
-            PRINT(f"amount = {importo}")
-            PRINT(f"vehicle_id = {vehicle_id[0]['id']}")
-            PRINT(f"Il soggetto è {soggetto}")
-            PRINT(f"purchaser_id = {res_partner_id[0]['id']}")
-            PRINT(f"deduction_point = {punti}")
-            PRINT(f"notes = {note}")
-            
-            
-            
-        # Creazine record
-            COCOZZA_connectDb.sqlCreate('fleet.vehicle.log.services', {
-                'description': "N° verbale " + str(n_verbale) + " - id vecchio gestionale " + str(id_multa),
-                'service_type_id': service_type_log_id[0]['id'],
-                'date': str(data_verbale),
-                'amount': importo,
-                'vehicle_id': vehicle_id[0]['id'],
-                'purchaser_id': res_partner_id[0]['id'],
-                'deduction_point': punti,
-                'notes': note,
-                'state': "done",
-            })
-            PRINT("Creazione eseguita")
-        
-#     # Verifico se il brand, il modello e la targa sono già inseriti nel db
-#     is_targa = COCOZZA_connectDb.sqlSearch('fleet.vehicle', ['name', '=', targa])
-#     is_cdc = COCOZZA_connectDb.sqlSearch('res.partner', ['name', '=', cdc])
     
-#     # print("FACCIO UN POO' DI PRINT")
-#     # print(is_brand)
-#     # print(is_modello)
-#     # print(is_categoria)
-#     # print(is_targa)
-#     # print(is_cdc)
-
-#     if targa == None:
-#         break
-
-#     # Verifico se la targa è già inserita
-#     PRINT("Controllo se la targa è inserita")
-#     controllo_targa = COCOZZA_connectDb.sqlSearch('fleet.vehicle',['license_plate', '=', targa])
-#     print(controllo_targa)
-#     if controllo_targa == []:
-#         print("Entro nella if inerente al veicolo non esistente")
-#         PRINT(f"La targa {targa} non è esistente.")
-#         # Verifico se il brand esiste
-#         is_brand = COCOZZA_connectDb.sqlSearch('fleet.vehicle.model.brand', ['name', '=', brand.lower().capitalize()])
-#         if is_brand == []:
-#             PRINT(f"il Brand {brand} non esiste. Procedo con la creazione.")
-#             is_brand = COCOZZA_connectDb.sqlCreate('fleet.vehicle.model.brand',{'name', '=', brand.lower().capitalize()})
-#             PRINT(f"Brand creato.")
-#         PRINT("Stampo is-brand")
-#         PRINT(is_brand)
-#         PRINT("Verifica del brand terminata")
-        
-#         # Verifico se la categoria esiste
-#         is_categoria = COCOZZA_connectDb.sqlSearch('fleet.vehicle.model.category', ['name', '=', categoria.lower().capitalize()])
-#         if is_categoria == []:
-#             PRINT(f"La categoria {categoria} non esiste. Procedo con la creazione della categoria.")
-#             is_categoria = COCOZZA_connectDb.sqlCreate('fleet.vehicle.model.category', {'name': categoria.lower().capitalize()})
-#             PRINT(f"Categoria {categoria} creata con successo")
-#         PRINT("Stampo is-categoria")
-#         PRINT(is_categoria)
-#         PRINT("Verifica della categoria terminata")
-
-#         # Verifico che il modello esista
-#         is_modello = COCOZZA_connectDb.sqlSearchMultiple('fleet.vehicle.model', [('name', '=', modello.lower().capitalize()), ('category_id', '=', is_categoria[0]['id']),('brand_id', '=', is_brand[0]['id'])],{'fields': ['id'], 'limit': 1})
-#         print(f"Stampo modello      : {is_modello}")
-#         if is_modello == []:
-#             PRINT(f"Il modello {modello} non esiste. Procedo con la creazione del modello.")
-#             is_modello = COCOZZA_connectDb.sqlCreate('fleet.vehicle.model', {'name': modello.lower().capitalize(),
-#                                                                 'brand_id': is_brand[0]['id'],
-#                                                                 'category_id': is_categoria[0]['id']})
-#             modello_id = is_modello[0]
-#             PRINT("Modello creato correttamente con id")
-#         else:
-#             modello_id = is_modello[0]['id']
-#         print("CI PROVOO")
-#         PRINT('Stampo is_modello')
-#         PRINT(is_modello)
-#         PRINT('Stampo modello_id')
-#         PRINT(modello_id)
-#         PRINT("Verifica del modello terminata")
-
-#         # Creo il mezzo
-#         PRINT(f"Procedo con la creazione del veicolo con targa {targa}")
-#         print(f"Ecco is_brand = {is_brand[0]['id']}")
-#         print(f"Ecco targa = {targa}")
-#         print(f"Ecco id_cdc = {is_cdc[0]['id']}")
-#         print(f"Ecco modello_id = {modello_id}")
-#         COCOZZA_connectDb.sqlCreate("fleet.vehicle", {
-#                                                     'brand_id': is_brand[0]['id'],
-#                                                     'license_plate': targa,
-#                                                     'organization_id': is_cdc[0]['id'],
-#                                                     'model_id': modello_id,
-#                                                     'euro': euro,
-#                                                     'state_vehicle': stato
-#                                                     })
-#         PRINT("Veicolo aggiunto!")
     
-#     else:
-#         PRINT(f"Veicolo con targa {targa} già esistente.")
-# PRINT("L'IMPORTAZIONE E' FINALMENTE TERMINATA!!!")
+# Creazione record
+    COCOZZA_connectDb.sqlCreate('fleet.vehicle.log.services', {
+        'description': "N° verbale " + str(n_verbale) + " - id vecchio gestionale " + str(id_multa),
+        'service_type_id': service_type_log_id[0]['id'],
+        'date': str(datetime),
+        'amount': importo,
+        'vehicle_id': vehicle_id[0]['id'],
+        'purchaser_id': res_partner_id[0]['id'],
+        'deduction_point': punti,
+        'notes': note,
+        'state': "done",
+    })
+    PRINT("Creazione eseguita")
+
