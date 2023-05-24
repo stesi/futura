@@ -3,7 +3,7 @@
     'version': '0.2',
     'author': "Luca Cocozza",
     'application': True,
-    'depends': ['hr', 'fleet', 'fleet_replacement', 'fleet_service_with_deduction',],
+    'depends': ['hr', 'fleet', 'fleet_replacement', 'fleet_service_with_deduction', 'l10n_it'],
     'data': [
         # # Settaggi per accesso ai contenuti
         'data/ir.model.access.csv',

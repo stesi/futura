@@ -1,0 +1,1 @@
+Il veicolo con targa  non esiste nel fleet.vehicle
