@@ -34,14 +34,14 @@ print(titles)
 
 # COCOZZA_connectDb.start()
 
-sconosciuto1 = input("Hai creato il veicolo del produttore 'Sconosciuto', il modello 'Sconosciuto' e con la targa 'Sconosciuto'???")
-sconosciuto2 = input("Hai settato sul file excel le targe vuote con 'Sconosciuto'?\nHai settato sul file excel i soggetti vuoti con 'Sconosciuto'?")
+# sconosciuto1 = input("Hai creato il veicolo del produttore 'Sconosciuto', il modello 'Sconosciuto' e con la targa 'Sconosciuto'???")
+# sconosciuto2 = input("Hai settato sul file excel le targe vuote con 'Sconosciuto'?\nHai settato sul file excel i soggetti vuoti con 'Sconosciuto'?")
 
-if sconosciuto1.lower() != "si" and sconosciuto2.lower() != "si":
-    quit()
+# if sconosciuto1.lower() != "si" and sconosciuto2.lower() != "si":
+#     quit()
 
 for record in data:
-    if record['IDMULTA'] >= 252:
+    if record['SOGGETTO'] != 'BEN KRAM ALAAEDDINE':
         continue
     PRINT("\nSTAMPO RECORD\n\n")
     PRINT(record)

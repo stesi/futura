@@ -37,7 +37,7 @@ print(titles)
 
 
 for record in data:
-    if record['IDSINISTRI'] <= 0:
+    if record['IDSINISTRI'] <= 1263:
         continue
     PRINT("\nSTAMPO RECORD\n\n")
     PRINT(record)

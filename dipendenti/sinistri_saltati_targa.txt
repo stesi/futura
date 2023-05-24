@@ -1,1 +1,4 @@
 Il veicolo con targa  non esiste nel fleet.vehicle
+Il veicolo con targa  non esiste nel fleet.vehicle
+Il veicolo con targa 0 non esiste nel fleet.vehicle
+Il veicolo con targa 0 non esiste nel fleet.vehicle
