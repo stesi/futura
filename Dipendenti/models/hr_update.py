@@ -15,7 +15,7 @@ class HrUpdate(models.Model):
     pwork_dipendente_id = fields.Integer()
     first_name = fields.Char()
     last_name = fields.Char()
-    interinale = fields.Char()
+    interinale = fields.Many2one('hr.interinale')
 
 class ResPartnerUpdate(models.Model):
     _inherit = "res.partner"

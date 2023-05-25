@@ -12,6 +12,7 @@
                     <field name="pwork_dipendente_id"/>
                     <field name="first_name"/>
                     <field name="last_name"/>
+                    <field name="interinale"/>
                 </xpath>
             </field>
         </record>
