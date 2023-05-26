@@ -147,3 +147,8 @@
 	path = ingegniamo/gtms_survey_fleet_deduction
 	url = git@github.com:ingegniamo/gtms_survey_fleet_deduction.git
 	branch = 16.0
+
+[submodule "ingegniamo/branch"]
+	path = ingegniamo/branch
+	url = git@github.com:ingegniamo/branch.git
+	branch = 16.0
