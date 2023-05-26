@@ -152,3 +152,8 @@
 	path = ingegniamo/branch
 	url = git@github.com:ingegniamo/branch.git
 	branch = 16.0
+
+[submodule "ingegniamo/stesi_mobile"]
+	path = ingegniamo/stesi_mobile
+	url = git@github.com:ingegniamo/stesi_mobile.git
+	branch = 16.0
