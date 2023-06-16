@@ -167,3 +167,8 @@
 	path = OCA/stock-logistics-warehouse
 	url = git@github.com:OCA/stock-logistics-warehouse.git
 	branch = 16.0
+
+[submodule "ingegniamo/package_name_constrains"]
+	path = ingegniamo/package_name_constrains
+	url = git@github.com:ingegniamo/package_name_constrains.git
+	branch = 16.0
