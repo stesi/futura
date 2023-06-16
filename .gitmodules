@@ -167,3 +167,8 @@
 	path = OCA/stock-logistics-warehouse
 	url = git@github.com:OCA/stock-logistics-warehouse.git
 	branch = 16.0
+
+[submodule "ingegniamo/helpdesk_deduction"]
+	path = ingegniamo/helpdesk_deduction
+	url = git@github.com:ingegniamo/helpdesk_deduction.git
+	branch = 16.0
