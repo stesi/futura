@@ -157,3 +157,23 @@
 	path = ingegniamo/stesi_mobile
 	url = git@github.com:ingegniamo/stesi_mobile.git
 	branch = 16.0
+
+[submodule "OCA/stock-logistics-workflow"]
+	path = OCA/stock-logistics-workflow
+	url = git@github.com:OCA/stock-logistics-workflow.git
+	branch = 16.0
+
+[submodule "OCA/stock-logistics-warehouse"]
+	path = OCA/stock-logistics-warehouse
+	url = git@github.com:OCA/stock-logistics-warehouse.git
+	branch = 16.0
+
+[submodule "ingegniamo/package_name_constrains"]
+	path = ingegniamo/package_name_constrains
+	url = git@github.com:ingegniamo/package_name_constrains.git
+	branch = 16.0
+
+[submodule "ingegniamo/helpdesk_deduction"]
+	path = ingegniamo/helpdesk_deduction
+	url = git@github.com:ingegniamo/helpdesk_deduction.git
+	branch = 16.0
