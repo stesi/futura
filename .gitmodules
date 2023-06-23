@@ -182,3 +182,8 @@
 	path = ingegniamo/stesi_stock_picking_procure_method
 	url = git@github.com:ingegniamo/stesi_stock_picking_procure_method.git
 	branch = 16.0
+
+[submodule "ingegniamo/stock_location_category_constrains"]
+	path = ingegniamo/stock_location_category_constrains
+	url = git@github.com:ingegniamo/stock_location_category_constrains.git
+	branch = 16.0
