@@ -188,7 +188,3 @@
 	url = git@github.com:ingegniamo/sign_otp.git
 	branch = 16.0
 
-[submodule "ingegniamo2/stesi_mobile"]
-	path = ingegniamo2/stesi_mobile
-	url = git@github.com:ingegniamo/stesi_mobile.git
-	branch = 16.0-test_gs1
