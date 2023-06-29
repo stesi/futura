@@ -156,7 +156,7 @@
 [submodule "ingegniamo/stesi_mobile"]
 	path = ingegniamo/stesi_mobile
 	url = git@github.com:ingegniamo/stesi_mobile.git
-	branch = 16.0
+	branch = 16.0-test_gs1
 
 [submodule "OCA/stock-logistics-workflow"]
 	path = OCA/stock-logistics-workflow
