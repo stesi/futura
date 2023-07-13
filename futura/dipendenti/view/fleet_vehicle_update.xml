@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='tag_ids']" position="after">
                     <br/><label for="stato_veicolo"/>
-                    <field name="stato_veicolo"/>
+                    <field name="stato_veicolo" string="Stato veicolo"/>
                 </xpath>
             </field>
         </record>

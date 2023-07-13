@@ -13,7 +13,11 @@
         'view/fleet_vehicle_update.xml',
         'view/hr_employee_update.xml',
         'view/hr_interinale_view.xml',
+        'view/res_partner_update.xml',
         # Menu
         'view/menu.xml',
+    ],
+    'i18n': [
+        'i18n/it_IT.po',
     ],
 }
