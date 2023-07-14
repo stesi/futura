@@ -192,3 +192,8 @@
 	path = ingegniamo/sign_otp
 	url = git@github.com:ingegniamo/sign_otp.git
 	branch = 16.0
+
+[submodule "Futura-srl/dipendenti"]
+	path = Futura-srl/dipendenti
+	url = git@github.com:Futura-srl/dipendenti.git
+	branch = main
