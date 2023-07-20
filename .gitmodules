@@ -197,3 +197,8 @@
 	path = Futura-srl/dipendenti
 	url = git@github.com:Futura-srl/dipendenti.git
 	branch = main
+
+[submodule "ingegniamo/gtms_survey_helpdesk"]
+	path = ingegniamo/gtms_survey_helpdesk
+	url = git@github.com:ingegniamo/gtms_survey_helpdesk.git
+	branch = 16.0
