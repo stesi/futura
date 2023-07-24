@@ -207,3 +207,8 @@
 	path = ingegniamo/stock_move_line_stock_quant_check_location
 	url = git@github.com:ingegniamo/stock_move_line_stock_quant_check_location.git
 	branch = 16.0
+
+[submodule "ingegniamo/futura_custom"]
+	path = ingegniamo/futura_custom
+	url = git@github.com:ingegniamo/futura_custom.git
+	branch = 16.0
