@@ -217,3 +217,8 @@
 	path = ingegniamo/stock_move_default_group_id
 	url = git@github.com:ingegniamo/stock_move_default_group_id.git
 	branch = 16.0
+
+[submodule "OCA/wms"]
+	path = OCA/wms
+	url = git@github.com:OCA/wms.git
+	branch = 16.0
