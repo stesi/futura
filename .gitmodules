@@ -232,3 +232,8 @@
 	path = ingegniamo/stesi_stock_picking_show_linked
 	url = git@github.com:ingegniamo/stesi_stock_picking_show_linked.git
 	branch = 16.0
+
+[submodule "ingegniamo/stock_move_line_avoid_putaway_strategy_done"]
+	path = ingegniamo/stock_move_line_avoid_putaway_strategy_done
+	url = git@github.com:ingegniamo/stock_move_line_avoid_putaway_strategy_done.git
+	branch = 16.0
