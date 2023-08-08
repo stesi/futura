@@ -242,3 +242,8 @@
 	path = ingegniamo/stock_move_line_incoming_check_package
 	url = git@github.com:ingegniamo/stock_move_line_incoming_check_package.git
 	branch = 16.0
+
+[submodule "stesi/gtms_stock"]
+	path = stesi/gtms_stock
+	url = git@github.com:stesi/gtms_stock.git
+	branch = 16.0
