@@ -237,3 +237,8 @@
 	path = ingegniamo/stock_move_line_avoid_putaway_strategy_done
 	url = git@github.com:ingegniamo/stock_move_line_avoid_putaway_strategy_done.git
 	branch = 16.0
+
+[submodule "ingegniamo/stock_move_line_incoming_check_package"]
+	path = ingegniamo/stock_move_line_incoming_check_package
+	url = git@github.com:ingegniamo/stock_move_line_incoming_check_package.git
+	branch = 16.0
