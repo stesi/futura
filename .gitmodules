@@ -247,3 +247,8 @@
 	path = stesi/gtms_stock
 	url = git@github.com:stesi/gtms_stock.git
 	branch = 16.0
+
+[submodule "ingegniamo/stock_quant_gather_domain"]
+	path = ingegniamo/stock_quant_gather_domain
+	url = git@github.com:ingegniamo/stock_quant_gather_domain.git
+	branch = 16.0
