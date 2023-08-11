@@ -242,3 +242,18 @@
 	path = ingegniamo/stock_move_line_incoming_check_package
 	url = git@github.com:ingegniamo/stock_move_line_incoming_check_package.git
 	branch = 16.0
+
+[submodule "stesi/gtms_stock"]
+	path = stesi/gtms_stock
+	url = git@github.com:stesi/gtms_stock.git
+	branch = 16.0
+
+[submodule "ingegniamo/stock_quant_gather_domain"]
+	path = ingegniamo/stock_quant_gather_domain
+	url = git@github.com:ingegniamo/stock_quant_gather_domain.git
+	branch = 16.0
+
+[submodule "ingegniamo/stock_picking_type_default_procure_method"]
+	path = ingegniamo/stock_picking_type_default_procure_method
+	url = git@github.com:ingegniamo/stock_picking_type_default_procure_method.git
+	branch = 16.0
