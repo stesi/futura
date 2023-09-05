@@ -257,3 +257,13 @@
 	path = ingegniamo/stock_picking_type_default_procure_method
 	url = git@github.com:ingegniamo/stock_picking_type_default_procure_method.git
 	branch = 16.0
+
+[submodule "ingegniamo/stock_product_avaiable_in_warehouse"]
+	path = ingegniamo/stock_product_avaiable_in_warehouse
+	url = git@github.com:ingegniamo/stock_product_avaiable_in_warehouse.git
+	branch = 16.0
+
+[submodule "ingegniamo/stock_quant_package_reserve_available_quantity"]
+	path = ingegniamo/stock_quant_package_reserve_available_quantity
+	url = git@github.com:ingegniamo/stock_quant_package_reserve_available_quantity.git
+	branch = 16.0
