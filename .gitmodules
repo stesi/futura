@@ -267,3 +267,7 @@
 	path = ingegniamo/stock_quant_package_reserve_available_quantity
 	url = git@github.com:ingegniamo/stock_quant_package_reserve_available_quantity.git
 	branch = 16.0
+[submodule "ingegniamo/stock_move_line_qty_done_uid"]
+	path = ingegniamo/stock_move_line_qty_done_uid
+	url = git@github.com:ingegniamo/stock_move_line_qty_done_uid.git
+	branch = 16.0
