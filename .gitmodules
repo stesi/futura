@@ -271,3 +271,8 @@
 	path = ingegniamo/stock_move_line_qty_done_uid
 	url = git@github.com:ingegniamo/stock_move_line_qty_done_uid.git
 	branch = 16.0
+
+[submodule "ingegniamo/package_details_on_product"]
+	path = ingegniamo/package_details_on_product
+	url = git@github.com:ingegniamo/package_details_on_product.git
+	branch = 16.0
