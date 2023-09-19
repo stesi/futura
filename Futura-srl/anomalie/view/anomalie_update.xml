@@ -13,8 +13,6 @@
         <field name="arch" type="xml">
             <tree string="Tipologie di reclamo" editable="bottom">
                 <field name="name"/>
-                <field name="res_company_id"/>
-                <field name="res_partner_id"/>
             </tree>
         </field>
     </record>
