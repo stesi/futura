@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="fleet_reclami" model="ir.actions.act_window">
+        <field name="name">Tipologie di reclamo</field>
+        <field name="res_model">fleet.reclami</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- Relativo alla visualizzazione della tabella ad alberlo -->
+    <record id="fleet_reclami_views_tree" model="ir.ui.view">
+        <field name="name">Tipologie di reclamo</field>
+        <field name="model">fleet.reclami/field>
+        <field name="arch" type="xml">
+            <tree string="Tipologie di reclamo" editable="bottom">
+                <field name="name"/>
+                <field name="res_company_id"/>
+                <field name="res_partner_id"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="view_hr_employee_form" model="ir.ui.view">
+            <field name="name">fleet.vehicle.log.services</field>
+            <field name="model">fleet.vehicle.log.services</field>
+            <field name="inherit_id" ref="fleet.vehicle.log.services" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='service_type_id']" position="after">
+                    <field name="reclami"/>
+                </xpath>
+            </field>
+        </record>
+
+
+</odoo>
