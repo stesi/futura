@@ -9,7 +9,7 @@
     <!-- Relativo alla visualizzazione della tabella ad alberlo -->
     <record id="fleet_reclami_views_tree" model="ir.ui.view">
         <field name="name">Tipologie di reclamo</field>
-        <field name="model">fleet.reclami/field>
+        <field name="model">fleet.reclami</field>
         <field name="arch" type="xml">
             <tree string="Tipologie di reclamo" editable="bottom">
                 <field name="name"/>
