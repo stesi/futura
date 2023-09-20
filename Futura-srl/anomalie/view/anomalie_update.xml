@@ -25,7 +25,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='description']" position="after">
                     <field name="reclami"/>
-                    <field name="reclami_type"/>
+                    <field name="reclamo_type"/>
                 </xpath>
             </field>
         </record>
