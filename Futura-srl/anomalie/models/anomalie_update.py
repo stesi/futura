@@ -7,7 +7,15 @@ class Reclami(models.Model):
     name = fields.Char()
 
 
+
 class AnomalieUpdate(models.Model):
     _inherit = "fleet.vehicle.log.services"
 
-    reclami = fields.Many2one('fleet.reclami')
+    reclami_selection = fields.Selection([
+        ("autista", "Dall'autista"),
+        ('fornitore', 'Dal fornitore'),
+        ('cliente', 'Dal cliente'),
+        ('rop', 'Dal rop'),
+        ], 'Reclamo', default="autista")
+
+    reclami_type_id = fields.Many2one('fleet.reclami', 'Tipo di reclamo')
