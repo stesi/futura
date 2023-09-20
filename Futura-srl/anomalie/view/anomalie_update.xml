@@ -12,19 +12,20 @@
         <field name="model">fleet.reclami</field>
         <field name="arch" type="xml">
             <tree string="Tipologie di reclamo" editable="bottom">
-                <field name="name"/>
+              <field name="name"/>
             </tree>
         </field>
     </record>
 
 
-    <record id="view_hr_employee_form" model="ir.ui.view">
+    <record id="view_fleet_vehicle_log_services_update" model="ir.ui.view">
             <field name="name">fleet.vehicle.log.services</field>
             <field name="model">fleet.vehicle.log.services</field>
-            <field name="inherit_id" ref="fleet.vehicle.log.services" />
+            <field name="inherit_id" ref="fleet.fleet_vehicle_log_services_view_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='service_type_id']" position="after">
+                <xpath expr="//field[@name='description']" position="after">
                     <field name="reclami"/>
+                    <field name="reclami_type"/>
                 </xpath>
             </field>
         </record>
