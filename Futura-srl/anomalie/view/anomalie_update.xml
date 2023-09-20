@@ -12,7 +12,7 @@
         <field name="model">fleet.reclami</field>
         <field name="arch" type="xml">
             <tree string="Tipologie di reclamo" editable="bottom">
-              <field name="name"/>
+                <field name="name"/>
             </tree>
         </field>
     </record>
@@ -24,8 +24,8 @@
             <field name="inherit_id" ref="fleet.fleet_vehicle_log_services_view_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='description']" position="after">
-                    <field name="reclami"/>
-                    <field name="reclamo_type"/>
+                    <field name="reclami_selection"/>
+                    <field name="reclami_type_id"/>
                 </xpath>
             </field>
         </record>
