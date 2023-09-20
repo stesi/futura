@@ -6,17 +6,17 @@
 
     <!-- MENU PRIMO LIVELLO -->
 
-    <menuitem id="hr_interinale_first_level_menu"
-    name="Interinale"
-    parent="hr.menu_hr_root"/>
+    <menuitem id="fleet_reclami_first_level_menu"
+    name="Reclami"
+    parent="fleet.fleet_configuration"/>
 
 
     <!-- MENU ACTION -->
 
-    <menuitem id="hr_interinale_movimentazione_menu_action"
-    action="hr_interinale"
-    parent="hr_interinale_first_level_menu"
-    name="Gestione aziende interinali"/>
+    <menuitem id="fleet_reclami_menu_action"
+    action="fleet_reclami"
+    parent="fleet_reclami_first_level_menu"
+    name="Tipologie di reclami"/>
 
 
 </odoo>
