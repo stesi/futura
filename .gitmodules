@@ -286,3 +286,8 @@
 	path = ingegniamo/server-tools-mig
 	url = git@github.com:ingegniamo/server-tools-mig.git
 	branch = 16.0
+
+[submodule "ingegniamo/gtms_learning_driver"]
+	path = ingegniamo/gtms_learning_driver
+	url = git@github.com:ingegniamo/gtms_learning_driver.git
+	branch = 16.0
