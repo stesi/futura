@@ -301,3 +301,8 @@
 	path = ingegniamo/stock_removal_strategy_least_packages_improvements
 	url = git@github.com:ingegniamo/stock_removal_strategy_least_packages_improvements.git
 	branch = 16.0
+
+[submodule "ingegniamo/stock_picking_batch_wave_auto"]
+	path = ingegniamo/stock_picking_batch_wave_auto
+	url = git@github.com:ingegniamo/stock_picking_batch_wave_auto.git
+	branch = 16.0
