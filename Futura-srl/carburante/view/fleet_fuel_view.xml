@@ -110,7 +110,7 @@
     <record id="fleet_fuel" model="ir.actions.act_window">
         <field name="name">Rifornimenti flotta</field>
         <field name="res_model">fleet.fuel</field>
-        <field name="view_mode">tree,list,form</field>
+        <field name="view_mode">tree,form</field>
     </record>
 
     
