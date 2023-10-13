@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="fleet_fuel_company" model="ir.actions.act_window">
+        <field name="name">Rifornimenti flotta</field>
+        <field name="res_model">fleet.fuel.company</field>
+        <field name="view_mode">tree,list,form</field>
+    </record>
+
+    <!-- Relativo alla visualizzazione della tabella ad alberlo -->
+    <record id="fleet_fuel_company_views_tree" model="ir.ui.view">
+        <field name="name">Azienda rifornimento flotta</field>
+        <field name="model">fleet.fuel.company</field>
+        <field name="arch" type="xml">
+            <tree string="Fleet Fuel Company">
+                <field name="name" invisible="1"/>
+                <field name="company_id"/>
+                <field name="company_reference"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="fleet_fuel_company_views_form" model="ir.ui.view">
+        <field name="name">Azienda rifornimento flotta</field>
+        <field name="model">fleet.fuel.company</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" invisible="1"/>
+                        <field name="company_id"/>
+                        <field name="company_reference"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>
