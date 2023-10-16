@@ -276,3 +276,8 @@
 	path = ingegniamo/package_details_on_product
 	url = git@github.com:ingegniamo/package_details_on_product.git
 	branch = 16.0
+
+[submodule "Futura-srl/carburante"]
+	path = Futura-srl/carburante
+	url = git@github.com:Futura-srl/carburante.git
+	branch = main
