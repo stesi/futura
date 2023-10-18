@@ -280,3 +280,8 @@
 [submodule "Futura-srl/carburante"]
 	path = Futura-srl/carburante
 	url = git@github.com:Futura-srl/carburante.git
+
+[submodule "ingegniamo/gtms_learning_driver"]
+	path = ingegniamo/gtms_learning_driver
+	url = git@github.com:ingegniamo/gtms_learning_driver.git
+	branch = 16.0
