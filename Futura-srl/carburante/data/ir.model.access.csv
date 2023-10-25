@@ -2,3 +2,4 @@ id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
 access_fleet_fuel,access_fleet_fuel,model_fleet_fuel,base.group_user,1,1,1,1
 access_fleet_fuel_type,access_fleet_fuel_type,model_fleet_fuel_type,base.group_user,1,1,1,1
 access_fleet_fuel_company,access_fleet_fuel_company,model_fleet_fuel_company,base.group_user,1,1,1,1
+access_fleet_vehicle,access_fleet_vehicle,model_fleet_vehicle,base.group_user,1,1,1,1

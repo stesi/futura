@@ -4,10 +4,10 @@ from odoo import fields, models
 class FleetFuelType(models.Model):
     _name = "fleet.fuel.type"
     _description = "Tipi di carburante"
-    
+
     name = fields.Char()
-    
-    
+
+
 class FleetFuelCompany(models.Model):
     _name = "fleet.fuel.company"
     _description = "Tabella per associare azienda interna con codice azienda carburante"
@@ -15,7 +15,7 @@ class FleetFuelCompany(models.Model):
     name = fields.Char(compute="_compute_name_company")
     company_reference = fields.Char(string="Company Reference")
     company_id = fields.Many2one('res.company')
-    
+
     def _compute_name_company(self):
         for record in self:
             if record.company_id:
@@ -50,12 +50,21 @@ class FleetFuel(models.Model):
     invoice_date = fields.Date(string='Invoice Date')
     invoice_discount = fields.Float(string='Invoice Discount', digits=(3, 3))
     tax_rate = fields.Float(string='Tax Rate', digits=(3, 3))
-    price_whitout_tax = fields.Float(string='Price Without Tax', digits=(6, 3))
-    
+    price_without_tax = fields.Float(string='Price Without Tax', digits=(6, 3))
+
     def _compute_res_partner_id(self):
         for record in self:
             if record.reference:
                 record.name = record.reference
             else:
                 record.name = ''
+
+
+class FleetFieldsUpdate(models.Model):
+    _inherit = "fleet.vehicle"
+
+    capacity_vehicle = fields.Integer(string="Capacity")
+    license_request = fields.Selection([('M', 'M'), ('A', 'A'), ('B1', 'B1'), ('B', 'B'), ('C1', 'C1'), ('C', 'C'), ('D1', 'D1'), ('D', 'D'), ('BE', 'BE'), ('C1E', 'C1E'), ('C', 'CE'), ('D1E', 'D1E'), ('DE', 'DE'), ('T', 'T'), ('F', 'F')])
+    euro = fields.Selection([('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'), ('6', '6')])
+
 

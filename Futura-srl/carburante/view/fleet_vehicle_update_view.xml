@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>   
+    <record id="fleet_vehicle_view_form_inherit" model="ir.ui.view">
+        <field name="name">Fleet Vehicle form inherit</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="capacity_vehicle"/>
+                <field name="euro"/>
+                <field name="license_request"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="fleet_vehicle_view_tree_inherit" model="ir.ui.view">
+        <field name="name">Fleet Vehicle tree inherit</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="capacity_vehicle"/>
+                <field name="euro"/>
+                <field name="license_request"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="fleet_vehicle_view_search_inherit" model="ir.ui.view">
+        <field name="name">Fleet Vehicle search inherit</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state_id']" position="after">
+                <field name="capacity_vehicle"/>
+                <field name="euro"/>
+                <field name="license_request"/>
+            </xpath>
+        </field>
+    </record>
+    
+</odoo>
