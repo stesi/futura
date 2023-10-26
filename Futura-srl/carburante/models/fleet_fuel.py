@@ -68,3 +68,16 @@ class FleetFieldsUpdate(models.Model):
     euro = fields.Selection([('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'), ('6', '6')])
 
 
+    def open_vehicle_fuel_records(self):
+        return {
+            'name': 'Rifornimenti del Veicolo',
+            'type': 'ir.actions.act_window',
+            'res_model': 'fleet.fuel',
+            'view_mode': 'tree',
+            'domain': [('vehicle_id', '=', self.id)],
+            'context': {
+                'default_vehicle_id': self.id,
+            },
+            'target': 'current',
+        }
+

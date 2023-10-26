@@ -5,6 +5,17 @@
         <field name="model">fleet.vehicle</field>
         <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//button[@name='return_action_to_open']" position="after">
+                <button name="return_action_to_open"
+                    type="object"
+                    class="oe_stat_button text-warning"
+                    icon="fa-wrench"
+                    context="{'xml_id':'fleet_vehicle_log_services_action', 'search_default_inactive': not active}"
+                    attrs="{'invisible': [('service_activity', '!=', 'today')]}"
+                    help="show the services logs for this vehicle">
+                    <field name="service_count" widget="statinfo" string="Services"/>
+                </button>
+            </xpath>
             <xpath expr="//field[@name='category_id']" position="after">
                 <field name="capacity_vehicle"/>
                 <field name="euro"/>
