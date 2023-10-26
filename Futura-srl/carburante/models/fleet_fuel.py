@@ -74,7 +74,7 @@ class FleetFieldsUpdate(models.Model):
             'type': 'ir.actions.act_window',
             'res_model': 'fleet.fuel',
             'view_mode': 'tree',
-            'domain': [('vehicle_id', '=', self.id)],
+            'domain': [('fleet_id', '=', self.id)],
             'context': {
                 'default_vehicle_id': self.id,
             },
