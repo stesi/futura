@@ -6,7 +6,12 @@
         <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//button[@name='return_action_to_open']" position="after">
-                <button string="Rifornimenti" type="object" class="oe_highlight" name="open_vehicle_fuel_records"/>
+                <button 
+                string="Rifornimenti"
+                type="object"
+                icon="gas-pump"
+                class="oe_highlight" 
+                name="open_vehicle_fuel_records"/>
             </xpath>
             <xpath expr="//field[@name='category_id']" position="after">
                 <field name="capacity_vehicle"/>

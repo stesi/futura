@@ -28,29 +28,29 @@ class FleetFuel(models.Model):
     _name = "fleet.fuel"
     _description = "Tabella rifornimenti mezzi"
 
-    name = fields.Char(compute='_compute_res_partner_id')
-    res_partner_id = fields.Many2one('res.partner', string='Partner', domain="[('is_company','=',True)]")
-    reference = fields.Char(string='Reference')
-    point_sale_code = fields.Char(string='Point Sale Code')
-    location = fields.Char(string='Location')
-    address = fields.Char(string='Address')
-    transaction_datetime = fields.Datetime(string='Transaction Date and Time')
-    ticket = fields.Char(string='Ticket')
+    name = fields.Char(compute='_compute_res_partner_id', readonly=True)
+    res_partner_id = fields.Many2one('res.partner', string='Partner', domain="[('is_company','=',True)]", readonly=True)
+    reference = fields.Char(string='Reference', readonly=True)
+    point_sale_code = fields.Char(string='Point Sale Code', readonly=True)
+    location = fields.Char(string='Location', readonly=True)
+    address = fields.Char(string='Address', readonly=True)
+    transaction_datetime = fields.Datetime(string='Transaction Date and Time', readonly=True)
+    ticket = fields.Char(string='Ticket', readonly=True)
     km_fleet = fields.Char(string="Km at moment")
     driver_id = fields.Many2one('res.partner', string='Driver', domain="[('is_driver','=',True)]")
-    card_number = fields.Char(string='Card Number')
+    card_number = fields.Char(string='Card Number', readonly=True)
     fleet_id = fields.Many2one('fleet.vehicle', string='Vehicle')
-    product_id = fields.Many2one('fleet.fuel.type', string='Fuel Type')
-    quantity = fields.Float(string='Quantity')
-    price_unit = fields.Float(string='Price per Unit', digits=(3, 3))
-    price = fields.Float(string='Total Price', digits=(3, 3))
-    tax = fields.Float(string='Tax', digits=(3, 3))
-    business_name_id = fields.Many2one('res.company', string='company reference')
-    invoice = fields.Char(string='Invoice')
-    invoice_date = fields.Date(string='Invoice Date')
-    invoice_discount = fields.Float(string='Invoice Discount', digits=(3, 3))
-    tax_rate = fields.Float(string='Tax Rate', digits=(3, 3))
-    price_without_tax = fields.Float(string='Price Without Tax', digits=(6, 3))
+    product_id = fields.Many2one('fleet.fuel.type', string='Fuel Type', readonly=True)
+    quantity = fields.Float(string='Quantity', readonly=True)
+    price_unit = fields.Float(string='Price per Unit', digits=(3, 3), readonly=True)
+    price = fields.Float(string='Total Price', digits=(3, 3), readonly=True)
+    tax = fields.Float(string='Tax', digits=(3, 3), readonly=True)
+    business_name_id = fields.Many2one('res.company', string='company reference', readonly=True)
+    invoice = fields.Char(string='Invoice', readonly=True)
+    invoice_date = fields.Date(string='Invoice Date', readonly=True)
+    invoice_discount = fields.Float(string='Invoice Discount', digits=(3, 3), readonly=True)
+    tax_rate = fields.Float(string='Tax Rate', digits=(3, 3), readonly=True)
+    price_without_tax = fields.Float(string='Price Without Tax', digits=(6, 3), readonly=True)
 
     def _compute_res_partner_id(self):
         for record in self:
@@ -70,10 +70,10 @@ class FleetFieldsUpdate(models.Model):
 
     def open_vehicle_fuel_records(self):
         return {
-            'name': 'Rifornimenti del Veicolo',
+            'name': 'Rifornimenti del veicolo',
             'type': 'ir.actions.act_window',
             'res_model': 'fleet.fuel',
-            'view_mode': 'tree',
+            'view_mode': 'tree,form',
             'domain': [('fleet_id', '=', self.id)],
             'context': {
                 'default_vehicle_id': self.id,
