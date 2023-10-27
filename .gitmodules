@@ -320,3 +320,8 @@
 	path = ingegniamo/stock_quant_package_generate_multi
 	url = git@github.com:ingegniamo/stock_quant_package_generate_multi.git
 	branch = 16.0
+
+[submodule "OCA/report-print-send"]
+	path = OCA/report-print-send
+	url = git@github.com:OCA/report-print-send.git
+	branch = 16.0
