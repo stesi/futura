@@ -11,5 +11,4 @@ class Diritti(models.Model):
     @api.depends('groups_ids')
     def _compute_is_rop(self):
         for record in self:
-            if 116 in record.groups_ids:
-                record.is_rop = True
+            record.is_rop = 116 in record.groups_ids.ids

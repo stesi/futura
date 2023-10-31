@@ -6,8 +6,8 @@
         <field name="inherit_id" ref="fleet_service_with_deduction.fleet_vehicle_log_services_form_inherit"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='start_date']" position="before">
-                <field name="groups_ids" invisible='1'/>
-                <field name="is_rop" invisible='1'/>
+                <field name="groups_ids" invisible='0'/>
+                <field name="is_rop" invisible='0'/>
             </xpath>
             <xpath expr="//field[@name='start_date']" position="attributes">
                 <attribute name="attrs">{'readonly': [('is_rop', '=', True)]}</attribute>

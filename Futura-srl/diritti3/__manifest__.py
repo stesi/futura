@@ -2,7 +2,7 @@
     'name': 'diritti',
     'version': '16',
     'author': "Luca Cocozza",
-    'application': True,
+    'application': False,
     'description': "Aggiunta del campo groups_ids da poter integrare nei moduli.",
     'depends': [],
     'data': [
