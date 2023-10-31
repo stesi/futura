@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+
+
+    <record id="fleet_fuel_views_form" model="ir.ui.view">
+        <field name="name">Modulo di Rifornimenti Flotta</field>
+        <field name="model">fleet.fuel</field>
+        <field name="arch" type="xml">
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='start_date']" position="attributes">
+                <attribute name="attrs">{'invisible': ['readonly': [('is_rop', '=', True)]]}</attribute>
+            </xpath>
+        </field>
+        </field>
+    </record>
+
+
+</odoo>
