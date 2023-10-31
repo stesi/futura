@@ -2,6 +2,7 @@
 <odoo>
     <record id="fleet_vehicle_log_services_form_inherit_2" model="ir.ui.view">
         <field name="name">Modulo di Rifornimenti Flotta</field>
+        <field name="model">fleet.vehicle.log.services</field>
         <field name="inherit_id" ref="fleet_service_with_deduction.fleet_vehicle_log_services_form_inherit"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='start_date']" position="before">
