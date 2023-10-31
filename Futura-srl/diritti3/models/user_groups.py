@@ -15,5 +15,5 @@ class Diritti(models.Model):
             user = self.env.user
             # Ottieni gli identificatori dei gruppi dell'utente connesso
             record.groups_ids = user.groups_id.ids
-            if 116 in record.groups_ids:
-                record.is_rop = True
+            #if 116 in record.groups_ids:
+            record.is_rop = True

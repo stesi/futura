@@ -6,6 +6,7 @@
         <field name="inherit_id" ref="fleet.fleet_vehicle_log_services_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='start_date']" position="before">
+                <field name="groups_ids"/>
                 <field name="is_rop"/>
             </xpath>
             <xpath expr="//field[@name='start_date']" position="attributes">
