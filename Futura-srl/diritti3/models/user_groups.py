@@ -1,8 +1,8 @@
-from odoo import fields, models
+from odoo import fields, models, api
 
 
-class FleetFuelType(models.Model):
-    _inherit = ['fleet.vehicle.log.services']
+class Diritti(models.Model):
+    _inherit = 'fleet.vehicle.log.services'
 
 
     groups_ids = fields.Char(string='Groups of the User', compute='_compute_user_groups')
