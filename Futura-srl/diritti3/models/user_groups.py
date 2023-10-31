@@ -5,16 +5,8 @@ class Diritti(models.Model):
     _inherit = 'fleet.vehicle.log.services'
 
 
-    groups_ids = fields.Many2many('res.groups', string='Groups of the User', compute='_compute_user_groups')
-    is_rop = fields.Boolean(compute='_compute_is_rop')
-
-    @api.depends()
-    def _compute_user_groups(self):
-        for record in self:
-            # Trova l'utente connesso
-            user = self.env.user
-            # Ottieni gli identificatori dei gruppi dell'utente connesso
-            record.groups_ids = user.groups_id.ids
+    groups_ids = fields.Many2many('res.groups', string='Groups of the User')
+    is_rop = fields.Boolean(default=False, compute='_compute_is_rop')
 
     @api.depends('groups_ids')
     def _compute_is_rop(self):
