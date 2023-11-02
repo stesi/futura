@@ -320,3 +320,8 @@
 	path = ingegniamo/stock_picking_batch_wave_auto
 	url = git@github.com:ingegniamo/stock_picking_batch_wave_auto.git
 	branch = 16.0
+
+[submodule "ingegniamo/stock_move_extra_move_origin"]
+	path = ingegniamo/stock_move_extra_move_origin
+	url = git@github.com:ingegniamo/stock_move_extra_move_origin.git
+	branch = 16.0
