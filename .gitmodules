@@ -300,3 +300,8 @@
 	path = ingegniamo/server-tools-mig
 	url = git@github.com:ingegniamo/server-tools-mig.git
 	branch = 16.0
+
+[submodule "ingegniamo/stock_removal_strategy_least_packages_improvements"]
+	path = ingegniamo/stock_removal_strategy_least_packages_improvements
+	url = git@github.com:ingegniamo/stock_removal_strategy_least_packages_improvements.git
+	branch = 16.0
