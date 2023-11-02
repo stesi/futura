@@ -285,3 +285,8 @@
 	path = ingegniamo/gtms_learning_driver
 	url = git@github.com:ingegniamo/gtms_learning_driver.git
 	branch = 16.0
+
+[submodule "OCA/report-print-send"]
+	path = OCA/report-print-send
+	url = git@github.com:OCA/report-print-send.git
+	branch = 16.0
