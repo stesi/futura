@@ -325,3 +325,8 @@
 	path = ingegniamo/stock_move_extra_move_origin
 	url = git@github.com:ingegniamo/stock_move_extra_move_origin.git
 	branch = 16.0
+
+[submodule "Futura-srl/Diritti"]
+	path = Futura-srl/Diritti
+	url = git@github.com:Futura-srl/Diritti.git
+	branch = main
