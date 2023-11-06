@@ -285,3 +285,43 @@
 	path = ingegniamo/gtms_learning_driver
 	url = git@github.com:ingegniamo/gtms_learning_driver.git
 	branch = 16.0
+
+[submodule "OCA/report-print-send"]
+	path = OCA/report-print-send
+	url = git@github.com:OCA/report-print-send.git
+	branch = 16.0
+
+[submodule "ingegniamo/stock_quant_package_generate_multi"]
+	path = ingegniamo/stock_quant_package_generate_multi
+	url = git@github.com:ingegniamo/stock_quant_package_generate_multi.git
+	branch = 16.0
+
+[submodule "ingegniamo/server-tools-mig"]
+	path = ingegniamo/server-tools-mig
+	url = git@github.com:ingegniamo/server-tools-mig.git
+	branch = 16.0
+
+[submodule "ingegniamo/stock_removal_strategy_least_packages_improvements"]
+	path = ingegniamo/stock_removal_strategy_least_packages_improvements
+	url = git@github.com:ingegniamo/stock_removal_strategy_least_packages_improvements.git
+	branch = 16.0
+
+[submodule "ingegniamo/stock_removal_strategy_least_packages"]
+	path = ingegniamo/stock_removal_strategy_least_packages
+	url = git@github.com:ingegniamo/stock_removal_strategy_least_packages.git
+	branch = 16.0
+
+[submodule "ingegniamo/stock_picking_split_move"]
+	path = ingegniamo/stock_picking_split_move
+	url = git@github.com:ingegniamo/stock_picking_split_move.git
+	branch = 16.0
+
+[submodule "ingegniamo/stock_picking_batch_wave_auto"]
+	path = ingegniamo/stock_picking_batch_wave_auto
+	url = git@github.com:ingegniamo/stock_picking_batch_wave_auto.git
+	branch = 16.0
+
+[submodule "ingegniamo/stock_move_extra_move_origin"]
+	path = ingegniamo/stock_move_extra_move_origin
+	url = git@github.com:ingegniamo/stock_move_extra_move_origin.git
+	branch = 16.0
