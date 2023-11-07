@@ -330,3 +330,8 @@
 	path = Futura-srl/Diritti
 	url = git@github.com:Futura-srl/Diritti.git
 	branch = main
+
+[submodule "Futura-srl/sondaggi_magazzino"]
+	path = Futura-srl/sondaggi_magazzino
+	url = git@github.com:Futura-srl/sondaggi_magazzino.git
+	branch = main
