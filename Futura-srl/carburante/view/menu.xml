@@ -14,14 +14,18 @@
     parent="fleet.fleet_vehicles"
     name="Carburante"/>
 
+    <menuitem id="fleet_fuel_menu_category"
+    parent="fleet.fleet_configuration"
+    name="Fuel"/>
+
     <menuitem id="fleet_fuel_type_menu_action"
     action="fleet_fuel_type"
-    parent="fleet.fleet_configuration"
+    parent="fleet_fuel_menu_category"
     name="Type of fuel"/>
 
     <menuitem id="fleet_fuel_company_menu_action"
     action="fleet_fuel_company"
-    parent="fleet.fleet_configuration"
+    parent="fleet_fuel_menu_category"
     name="Fuel company"/>
 
 </odoo>

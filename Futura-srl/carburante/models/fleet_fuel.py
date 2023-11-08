@@ -1,20 +1,22 @@
-from odoo import fields, models
+from odoo import fields, models, api
 
 
 class FleetFuelType(models.Model):
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _name = "fleet.fuel.type"
     _description = "Tipi di carburante"
 
-    name = fields.Char(track_visibilty='onghange')
+    name = fields.Char(tracking=True)
 
 
 class FleetFuelCompany(models.Model):
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _name = "fleet.fuel.company"
     _description = "Tabella per associare azienda interna con codice azienda carburante"
 
     name = fields.Char(compute="_compute_name_company")
-    company_reference = fields.Char(string="Company Reference", track_visibilty='onghange')
-    company_id = fields.Many2one('res.company', track_visibilty='onghange')
+    company_reference = fields.Char(string="Company Reference", tracking=True)
+    company_id = fields.Many2one('res.company', tracking=True)
 
     def _compute_name_company(self):
         for record in self:
@@ -25,6 +27,7 @@ class FleetFuelCompany(models.Model):
 
 
 class FleetFuel(models.Model):
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _name = "fleet.fuel"
     _description = "Tabella rifornimenti mezzi"
 
@@ -36,10 +39,10 @@ class FleetFuel(models.Model):
     address = fields.Char(string='Address', readonly=True)
     transaction_datetime = fields.Datetime(string='Transaction Date and Time', readonly=True)
     ticket = fields.Char(string='Ticket', readonly=True)
-    km_fleet = fields.Char(string="Km at moment")
-    driver_id = fields.Many2one('res.partner', string='Driver', domain="[('is_driver','=',True)]", track_visibilty='onghange')
+    km_fleet = fields.Char(string="Km at moment", tracking=True)
+    driver_id = fields.Many2one('res.partner', string='Driver', domain="[('is_driver','=',True)]", tracking=True)
     card_number = fields.Char(string='Card Number', readonly=True)
-    fleet_id = fields.Many2one('fleet.vehicle', string='Vehicle', track_visibilty='onghange')
+    fleet_id = fields.Many2one('fleet.vehicle', string='Vehicle', tracking=True)
     product_id = fields.Many2one('fleet.fuel.type', string='Fuel Type', readonly=True)
     quantity = fields.Float(string='Quantity', readonly=True)
     price_unit = fields.Float(string='Price per Unit', digits=(3, 3), readonly=True)
@@ -51,7 +54,7 @@ class FleetFuel(models.Model):
     invoice_discount = fields.Float(string='Invoice Discount', digits=(3, 3), readonly=True)
     tax_rate = fields.Float(string='Tax Rate', digits=(3, 3), readonly=True)
     price_without_tax = fields.Float(string='Price Without Tax', digits=(6, 3), readonly=True)
-    state = fields.Selection([('da_verificare', 'Da verificare'), ('verificato', 'Verificato'), ('richiesto_rimborso', 'Richiesto rimborso'), ('rimborsato', 'Rimborsato')], track_visibilty='onghange')
+    state = fields.Selection([('da_verificare', 'Da verificare'), ('verificato', 'Verificato'), ('richiesto_rimborso', 'Richiesto rimborso'), ('rimborsato', 'Rimborsato')], tracking=True)
 
     def _compute_res_partner_id(self):
         for record in self:
@@ -64,10 +67,9 @@ class FleetFuel(models.Model):
 class FleetFieldsUpdate(models.Model):
     _inherit = "fleet.vehicle"
 
-    capacity_vehicle = fields.Integer(string="Capacity", track_visibilty='onghange')
-    license_request = fields.Selection([('M', 'M'), ('A', 'A'), ('B1', 'B1'), ('B', 'B'), ('C1', 'C1'), ('C', 'C'), ('D1', 'D1'), ('D', 'D'), ('BE', 'BE'), ('C1E', 'C1E'), ('CE', 'CE'), ('D1E', 'D1E'), ('DE', 'DE'), ('T', 'T'), ('F', 'F')], track_visibilty='onghange')
-    euro = fields.Selection([('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'), ('6', '6')], track_visibilty='onghange')
-
+    capacity_vehicle = fields.Integer(string="Capacity", tracking=True)
+    license_request = fields.Selection([('M', 'M'), ('A', 'A'), ('B1', 'B1'), ('B', 'B'), ('C1', 'C1'), ('C', 'C'), ('D1', 'D1'), ('D', 'D'), ('BE', 'BE'), ('C1E', 'C1E'), ('CE', 'CE'), ('D1E', 'D1E'), ('DE', 'DE'), ('T', 'T'), ('F', 'F')], tracking=True)
+    euro = fields.Selection([('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'), ('6', '6')], tracking=True)
 
     def open_vehicle_fuel_records(self):
         return {
@@ -82,3 +84,34 @@ class FleetFieldsUpdate(models.Model):
             'target': 'current',
         }
 
+class FleetFuelDriver(models.Model):
+    _name = "fleet.fuel.driver"
+    _description = "Tabella storico carte carburanti"
+    
+    
+    driver_code = fields.Char()
+    driver_pin = fields.Char()
+    start_datetime = fields.Datetime()
+    end_datetime = fields.Datetime()
+    state = fields.Selection(string='Status', required=True, readonly=True, copy=False, selection=[('valid', 'Valida'),('unvalid', 'Non valida'),], default='valid')
+    vehicle_id = fields.One2many('fleet.vehicle')
+
+
+
+class FleetFieldsUpdate(models.Model):
+    _inherit = "res.partner"
+    
+    
+    driver_code = fields.Char()
+    driver_pin = fields.Char()
+
+
+
+    @api.onchange('driver_code', 'driver_pin')
+    def _update_fleet_fuel_driver(self):
+        self.env['fleet.fuel.driver'].create({
+            'driver_code': self.driver_code,
+            'driver_pin': self.driver_pin,
+            'start_datetime': self.start_datetime,
+            'end_datetime': self.end_datetime,
+        })

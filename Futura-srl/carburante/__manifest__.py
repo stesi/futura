@@ -13,6 +13,7 @@
         'view/fleet_fuel_type_view.xml',
         'view/fleet_fuel_company_view.xml',
         'view/fleet_vehicle_update_view.xml',
+        'view/res_partner_view_update.xml',
         # Menu
         'view/menu.xml',
     ],
