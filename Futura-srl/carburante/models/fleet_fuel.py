@@ -1,4 +1,4 @@
-from odoo import fields, models, api
+from odoo import fields, models
 
 
 class FleetFuelType(models.Model):
@@ -71,6 +71,7 @@ class FleetFieldsUpdate(models.Model):
     license_request = fields.Selection([('M', 'M'), ('A', 'A'), ('B1', 'B1'), ('B', 'B'), ('C1', 'C1'), ('C', 'C'), ('D1', 'D1'), ('D', 'D'), ('BE', 'BE'), ('C1E', 'C1E'), ('CE', 'CE'), ('D1E', 'D1E'), ('DE', 'DE'), ('T', 'T'), ('F', 'F')], tracking=True)
     euro = fields.Selection([('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'), ('6', '6')], tracking=True)
 
+
     def open_vehicle_fuel_records(self):
         return {
             'name': 'Rifornimenti del veicolo',
@@ -84,34 +85,3 @@ class FleetFieldsUpdate(models.Model):
             'target': 'current',
         }
 
-class FleetFuelDriver(models.Model):
-    _name = "fleet.fuel.driver"
-    _description = "Tabella storico carte carburanti"
-    
-    
-    driver_code = fields.Char()
-    driver_pin = fields.Char()
-    start_datetime = fields.Datetime()
-    end_datetime = fields.Datetime()
-    state = fields.Selection(string='Status', required=True, readonly=True, copy=False, selection=[('valid', 'Valida'),('unvalid', 'Non valida'),], default='valid')
-    vehicle_id = fields.One2many('fleet.vehicle')
-
-
-
-class FleetFieldsUpdate(models.Model):
-    _inherit = "res.partner"
-    
-    
-    driver_code = fields.Char()
-    driver_pin = fields.Char()
-
-
-
-    @api.onchange('driver_code', 'driver_pin')
-    def _update_fleet_fuel_driver(self):
-        self.env['fleet.fuel.driver'].create({
-            'driver_code': self.driver_code,
-            'driver_pin': self.driver_pin,
-            'start_datetime': self.start_datetime,
-            'end_datetime': self.end_datetime,
-        })
