@@ -335,3 +335,8 @@
 	path = Futura-srl/sondaggi_magazzino
 	url = git@github.com:Futura-srl/sondaggi_magazzino.git
 	branch = main
+
+[submodule "Futura-srl/schede_carburante"]
+	path = Futura-srl/schede_carburante
+	url = git@github.com:Futura-srl/schede_carburante.git
+	branch = main
