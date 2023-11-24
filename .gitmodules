@@ -345,3 +345,8 @@
 	path = Futura-srl/export_stock_move_lines
 	url = git@github.com:Futura-srl/export_stock_move_lines.git
 	branch = main
+
+[submodule "Futura-srl/ks_dashboard_ninja"]
+	path = Futura-srl/ks_dashboard_ninja
+	url = git@github.com:Luca-Cocozza/ks_ds_nj.git
+	branch = main
