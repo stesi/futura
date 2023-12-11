@@ -350,3 +350,8 @@
 	path = Futura-srl/ks_dashboard_ninja
 	url = git@github.com:Luca-Cocozza/ks_ds_nj.git
 	branch = main
+
+[submodule "Futura-srl/sign_deduction_update"]
+	path = Futura-srl/sign_deduction_update
+	url = git@github.com:Futura-srl/sign_deduction_update.git
+	branch = main
