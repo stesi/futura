@@ -355,3 +355,8 @@
 	path = Futura-srl/sign_deduction_update
 	url = git@github.com:Futura-srl/sign_deduction_update.git
 	branch = main
+
+[submodule "Futura-srl/automatic_fleet_management"]
+	path = Futura-srl/automatic_fleet_management
+	url = git@github.com:Futura-srl/automatic_fleet_management.git
+	branch = main
