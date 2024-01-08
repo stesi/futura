@@ -360,3 +360,8 @@
 	path = Futura-srl/automatic_fleet_management
 	url = git@github.com:Futura-srl/automatic_fleet_management.git
 	branch = main
+
+[submodule "Futura-srl/schedule_activity_to_multiple_users"]
+	path = Futura-srl/schedule_activity_to_multiple_users
+	url = git@github.com:Luca-Cocozza/schedule_activity_to_multiple_users.git
+	branch = main
