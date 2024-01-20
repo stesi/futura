@@ -365,3 +365,8 @@
 	path = Futura-srl/schedule_activity_to_multiple_users
 	url = git@github.com:Luca-Cocozza/schedule_activity_to_multiple_users.git
 	branch = main
+
+[submodule "Futura-srl/import_trip_to_tms"]
+	path = Futura-srl/import_trip_to_tms
+	url = git@github.com:Luca-Cocozza/import_trip_to_tms.git
+	branch = main
