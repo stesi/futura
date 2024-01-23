@@ -370,3 +370,8 @@
 	path = Futura-srl/import_trip_to_tms
 	url = git@github.com:Luca-Cocozza/import_trip_to_tms.git
 	branch = main
+
+[submodule "Futura-srl/stesi_fleet_documents_update"]
+	path = Futura-srl/stesi_fleet_documents_update
+	url = git@github.com:Futura-srl/stesi_fleet_documents_update.git
+	branch = main
