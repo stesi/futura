@@ -375,3 +375,8 @@
 	path = Futura-srl/stesi_fleet_documents_update
 	url = git@github.com:Futura-srl/stesi_fleet_documents_update.git
 	branch = main
+
+[submodule "Futura-srl/print_minutes_of_meeting"]
+	path = Futura-srl/print_minutes_of_meeting
+	url = git@github.com:Futura-srl/print_minutes_of_meeting.git
+	branch = main
