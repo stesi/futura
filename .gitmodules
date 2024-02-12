@@ -385,3 +385,8 @@
 	path = Futura-srl/export_hours_to_pwork
 	url = git@github.com:Futura-srl/export_hours_to_pwork.git
 	branch = main
+
+[submodule "Futura-srl/fleet_check"]
+	path = Futura-srl/fleet_check
+	url = git@github.com:Futura-srl/fleet_check.git
+	branch = main
