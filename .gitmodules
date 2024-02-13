@@ -390,3 +390,8 @@
 	path = Futura-srl/fleet_check
 	url = git@github.com:Futura-srl/fleet_check.git
 	branch = main
+
+[submodule "Luca-Cocozza/image_preview_widget"]
+	path = Luca-Cocozza/image_preview_widget
+	url = git@github.com:Luca-Cocozza/image_preview_widget.git
+	branch = main
