@@ -395,3 +395,8 @@
 	path = Luca-Cocozza/image_preview_widget
 	url = git@github.com:Luca-Cocozza/image_preview_widget.git
 	branch = main
+
+[submodule "Futura-srl/leave_portal_user"]
+	path = Futura-srl/leave_portal_user
+	url = git@github.com:Luca-Cocozza/leave_portal_user.git
+	branch = main
