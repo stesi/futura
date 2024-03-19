@@ -400,3 +400,8 @@
 	path = Futura-srl/leave_portal_user
 	url = git@github.com:Luca-Cocozza/leave_portal_user.git
 	branch = main
+
+[submodule "Luca-Cocozza/auth_session_timeout"]
+	path = Luca-Cocozza/auth_session_timeout
+	url = git@github.com:Luca-Cocozza/auth_session_timeout.git
+	branch = main
