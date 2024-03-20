@@ -405,3 +405,8 @@
 	path = Futura-srl/auth_session_timeout
 	url = git@github.com:Luca-Cocozza/auth_session_timeout.git
 	branch = main
+
+[submodule "Futura-srl/deduction_update"]
+	path = Futura-srl/deduction_update
+	url = git@github.com:Luca-Cocozza/deduction_update.git
+	branch = main
