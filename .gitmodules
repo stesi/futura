@@ -410,3 +410,8 @@
 	path = Futura-srl/deduction_update
 	url = git@github.com:Luca-Cocozza/deduction_update.git
 	branch = main
+
+[submodule "Futura-srl/kg_document_expiry"]
+	path = Futura-srl/kg_document_expiry
+	url = git@github.com:Luca-Cocozza/kg_document_expiry.git
+	branch = main
