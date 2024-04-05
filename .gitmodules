@@ -400,3 +400,8 @@
 	path = Futura-srl/leave_portal_user
 	url = git@github.com:Luca-Cocozza/leave_portal_user.git
 	branch = main
+
+[submodule "Futura-srl/kg_document_expiry"]
+	path = Futura-srl/kg_document_expiry
+	url = git@github.com:Luca-Cocozza/kg_document_expiry.git
+	branch = main
