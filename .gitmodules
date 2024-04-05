@@ -405,3 +405,8 @@
 	path = Futura-srl/kg_document_expiry
 	url = git@github.com:Luca-Cocozza/kg_document_expiry.git
 	branch = main
+
+[submodule "Futura-srl/auth_session_timeout"]
+	path = Futura-srl/auth_session_timeout
+	url = git@github.com:Luca-Cocozza/auth_session_timeout.git
+	branch = main
