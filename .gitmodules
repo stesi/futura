@@ -415,3 +415,8 @@
 	path = Futura-srl/fleet_check_damages
 	url = git@github.com:Futura-srl/fleet_check_damages.git
 	branch = main
+
+[submodule "Futura-srl/set_to_rop"]
+	path = Futura-srl/set_to_rop
+	url = git@github.com:Luca-Cocozza/set_to_rop.git
+	branch = main
