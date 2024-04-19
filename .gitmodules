@@ -420,3 +420,8 @@
 	path = Futura-srl/set_to_rop
 	url = git@github.com:Luca-Cocozza/set_to_rop.git
 	branch = main
+
+[submodule "Futura-srl/password_portal_user"]
+	path = Futura-srl/password_portal_user
+	url = git@github.com:Luca-Cocozza/password_portal_user.git
+	branch = main
