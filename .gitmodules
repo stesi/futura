@@ -425,3 +425,8 @@
 	path = Futura-srl/password_portal_user
 	url = git@github.com:Luca-Cocozza/password_portal_user.git
 	branch = main
+
+[submodule "Futura-srl/centro_di_costo_update"]
+	path = Futura-srl/centro_di_costo_update
+	url = git@github.com:Luca-Cocozza/centro_di_costo_update.git
+	branch = main
