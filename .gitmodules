@@ -435,3 +435,8 @@
 	path = Futura-srl/report_fleet_anomalies
 	url = git@github.com:Luca-Cocozza/report_fleet_anomalies.git
 	branch = main
+
+[submodule "Futura-srl/fleet_replacement_update"]
+	path = Futura-srl/fleet_replacement_update
+	url = git@github.com:Luca-Cocozza/fleet_replacement_update.git
+	branch = main
