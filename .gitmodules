@@ -440,3 +440,8 @@
 	path = Futura-srl/fleet_replacement_update
 	url = git@github.com:Luca-Cocozza/fleet_replacement_update.git
 	branch = main
+
+[submodule "Futura-srl/gtms_check_status_vehicle"]
+	path = Futura-srl/gtms_check_status_vehicle
+	url = git@github.com:Luca-Cocozza/gtms_check_status_vehicle.git
+	branch = main
