@@ -445,3 +445,8 @@
 	path = Futura-srl/gtms_check_status_vehicle
 	url = git@github.com:Luca-Cocozza/gtms_check_status_vehicle.git
 	branch = main
+
+[submodule "Futura-srl/Tank_fuel"]
+	path = Futura-srl/Tank_fuel
+	url = git@github.com:Luca-Cocozza/Tank_fuel.git
+	branch = main
