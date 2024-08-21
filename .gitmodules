@@ -452,3 +452,8 @@
 	branch = main
 
 
+
+[submodule "Futura-srl/wizard_action"]
+	path = Futura-srl/wizard_action
+	url = git@github.com:Luca-Cocozza/wizard_action.git
+	branch = main
