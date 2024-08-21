@@ -451,7 +451,3 @@
 	url = git@github.com:Luca-Cocozza/Tank_fuel.git
 	branch = main
 
-[submodule "Futura-srl/odoo_website_helpdesk"]
-	path = Futura-srl/odoo_website_helpdesk
-	url = git@github.com:Luca-Cocozza/odoo_website_helpdesk.git
-	branch = main
