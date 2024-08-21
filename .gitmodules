@@ -451,3 +451,8 @@
 	url = git@github.com:Luca-Cocozza/Tank_fuel.git
 	branch = main
 
+
+[submodule "Futura-srl/pec_manager"]
+	path = Futura-srl/pec_manager
+	url = git@github.com:Luca-Cocozza/pec_manager.git
+	branch = main
