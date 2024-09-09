@@ -462,3 +462,8 @@
 	path = Futura-srl/durc
 	url = git@github.com:Luca-Cocozza/durc.git
 	branch = main
+
+[submodule "Futura-srl/contestazioni"]
+	path = Futura-srl/contestazioni
+	url = git@github.com:Luca-Cocozza/contestazioni.git
+	branch = main
