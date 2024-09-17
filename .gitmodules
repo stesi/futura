@@ -445,3 +445,25 @@
 	path = Futura-srl/gtms_check_status_vehicle
 	url = git@github.com:Luca-Cocozza/gtms_check_status_vehicle.git
 	branch = main
+
+[submodule "Futura-srl/Tank_fuel"]
+	path = Futura-srl/Tank_fuel
+	url = git@github.com:Luca-Cocozza/Tank_fuel.git
+	branch = main
+
+
+
+[submodule "Futura-srl/wizard_action"]
+	path = Futura-srl/wizard_action
+	url = git@github.com:Luca-Cocozza/wizard_action.git
+	branch = main
+
+[submodule "Futura-srl/durc"]
+	path = Futura-srl/durc
+	url = git@github.com:Luca-Cocozza/durc.git
+	branch = main
+
+[submodule "Futura-srl/contestazioni"]
+	path = Futura-srl/contestazioni
+	url = git@github.com:Luca-Cocozza/contestazioni.git
+	branch = main
