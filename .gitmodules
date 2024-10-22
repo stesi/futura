@@ -467,3 +467,8 @@
 	path = Futura-srl/contestazioni
 	url = git@github.com:Luca-Cocozza/contestazioni.git
 	branch = main
+
+[submodule "Futura-srl/maintenance_request"]
+	path = Futura-srl/maintenance_request
+	url = git@github.com:Luca-Cocozza/maintenance_request.git
+	branch = main
