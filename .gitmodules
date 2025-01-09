@@ -472,8 +472,3 @@
 	path = Futura-srl/maintenance_request
 	url = git@github.com:Luca-Cocozza/maintenance_request.git
 	branch = main
-
-[submodule "Futura-srl/pec_manager"]
-	path = Futura-srl/pec_manager
-	url = git@github.com:madgrog/pec_manager.git
-	branch = main
